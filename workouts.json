@@ -10,100 +10,1225 @@
           "days": [
             {
               "id": "p1_w1_d1",
-              "name": "Day 1: Lower Body Power & Landing",
+              "name": "Day 1: Lower Body Power & Landing Mechanics",
               "exercises": [
                 {
                   "id": "p1_w1_d1_ex1",
-                  "series": "A1",
-                  "title": "Bodyweight Goblet Squats",
-                  "sets": "3",
-                  "reps": "10",
-                  "rest": "60s",
-                  "notes": "Focus on knee tracking & soft midfoot landing"
+                  "series": "Warmup",
+                  "title": "Dynamic Warm-up",
+                  "sets": "1",
+                  "reps": "5 Min",
+                  "rest": "0s",
+                  "notes": "Leg swings, world's greatest stretch, ankle mobility drills"
                 },
                 {
                   "id": "p1_w1_d1_ex2",
+                  "series": "A1",
+                  "title": "Snap Downs to Athletic Stance",
+                  "sets": "3",
+                  "reps": "5",
+                  "rest": "45s",
+                  "notes": "Hold bottom position 2 sec"
+                },
+                {
+                  "id": "p1_w1_d1_ex3",
                   "series": "A2",
-                  "title": "Dumbbell RDLs (or PVC Pipe)",
+                  "title": "Broad Jump with Deceleration Hold",
+                  "sets": "3",
+                  "reps": "4",
+                  "rest": "45s",
+                  "notes": "Focus on kinetic deceleration & safe landing"
+                },
+                {
+                  "id": "p1_w1_d1_ex4",
+                  "series": "A3",
+                  "title": "Box Drop Landings (12\" Box)",
+                  "sets": "3",
+                  "reps": "5",
+                  "rest": "45s",
+                  "notes": "Soft landings, sink into hips, protect knees"
+                },
+                {
+                  "id": "p1_w1_d5",
+                  "series": "B1",
+                  "title": "Goblet Squats (Tempo 3-1-1)",
+                  "sets": "3",
+                  "reps": "8-10",
+                  "rest": "60s",
+                  "notes": "Controlled descent"
+                },
+                {
+                  "id": "p1_w1_d6",
+                  "series": "B2",
+                  "title": "Bulgarian Split Squats",
+                  "sets": "3",
+                  "reps": "8 / leg",
+                  "rest": "60s",
+                  "notes": "Keep front knee tracking over toe"
+                },
+                {
+                  "id": "p1_w1_d7",
+                  "series": "B3",
+                  "title": "Romanian Deadlifts (RDLs)",
                   "sets": "3",
                   "reps": "10",
                   "rest": "60s",
                   "notes": "Hinge hips back, neutral spine"
                 },
                 {
-                  "id": "p1_w1_d1_ex3",
-                  "series": "B1",
-                  "title": "Step-Ups onto Bench",
+                  "id": "p1_w1_d8",
+                  "series": "C1",
+                  "title": "Deadbugs",
                   "sets": "3",
-                  "reps": "8 / leg",
+                  "reps": "10 / side",
                   "rest": "45s",
-                  "notes": "Explosive drive off top leg"
+                  "notes": "Brace core, keep lower back flat"
                 }
               ]
             },
             {
               "id": "p1_w1_d2",
-              "name": "Day 2: Agility & Speed Mechanics",
+              "name": "Day 2: Volleyball Skill Training",
               "exercises": [
                 {
                   "id": "p1_w1_d2_ex1",
-                  "series": "A1",
-                  "title": "Low-Base Lateral Shuffles",
-                  "sets": "4",
-                  "reps": "10 Yds",
-                  "rest": "45s",
-                  "notes": "Stay low, do not cross feet"
+                  "series": "Court",
+                  "title": "High-Volume Passing & Platform Reps",
+                  "sets": "1",
+                  "reps": "Session",
+                  "rest": "Varies",
+                  "notes": "Footwork to ball & serve receive read/react drills"
                 },
                 {
                   "id": "p1_w1_d2_ex2",
-                  "series": "A2",
-                  "title": "5-10-5 Pro Agility Shuttle",
-                  "sets": "3",
-                  "reps": "1 Round",
-                  "rest": "60s",
-                  "notes": "Fast hip turn, drop center of gravity"
+                  "series": "Conditioning",
+                  "title": "Short Interval Rally Conditioning",
+                  "sets": "1",
+                  "reps": "<10 sec work",
+                  "rest": "Varies",
+                  "notes": "Keep work intervals short to mirror rally duration"
                 },
                 {
                   "id": "p1_w1_d2_ex3",
-                  "series": "B1",
-                  "title": "4-Cone Reaction Box",
-                  "sets": "4",
-                  "reps": "15 Sec",
-                  "rest": "45s",
-                  "notes": "Keep chest & eyes up facing front"
+                  "series": "Recovery",
+                  "title": "Foam Rolling Quads & Calves",
+                  "sets": "1",
+                  "reps": "5 Min",
+                  "rest": "0s",
+                  "notes": "Target quad and calf tissue post-session"
                 }
               ]
             },
             {
               "id": "p1_w1_d3",
-              "name": "Day 3: Shoulder Care & Core Stability",
+              "name": "Day 3: Agility & Speed Mechanics",
               "exercises": [
                 {
                   "id": "p1_w1_d3_ex1",
-                  "series": "A1",
-                  "title": "Band Y-T-W Shoulder Raises",
-                  "sets": "2",
-                  "reps": "10 Each",
-                  "rest": "45s",
-                  "notes": "Scapular stability & rotator cuff defense"
+                  "series": "Warmup",
+                  "title": "Dynamic Warm-up",
+                  "sets": "1",
+                  "reps": "5 Min",
+                  "rest": "0s",
+                  "notes": "High knees, butt kicks, lateral shuffles, carioca"
                 },
                 {
                   "id": "p1_w1_d3_ex2",
-                  "series": "A2",
-                  "title": "Pallof Press (Anti-Rotation)",
+                  "series": "A1",
+                  "title": "Wall Drills (Posture & Acceleration Angle)",
                   "sets": "3",
-                  "reps": "10 / side",
+                  "reps": "10 sec holds",
                   "rest": "45s",
-                  "notes": "Brace core, prevent torso twisting"
+                  "notes": "Maintain strict posture & acceleration angle"
                 },
                 {
                   "id": "p1_w1_d3_ex3",
                   "series": "B1",
-                  "title": "Forearm Plank Hold",
+                  "title": "Lateral Shuffle to Sprint",
+                  "sets": "4",
+                  "reps": "10 Yds",
+                  "rest": "45s",
+                  "notes": "Fast first-step acceleration"
+                },
+                {
+                  "id": "p1_w1_d3_ex4",
+                  "series": "B2",
+                  "title": "3-Cone 'L-Drill'",
+                  "sets": "4",
+                  "reps": "1 Round",
+                  "rest": "60s",
+                  "notes": "Focus on low center of gravity at turns"
+                },
+                {
+                  "id": "p1_w1_d3_ex5",
+                  "series": "B3",
+                  "title": "Reactive Base Shuffles",
+                  "sets": "4",
+                  "reps": "8 sec work",
+                  "rest": "45s",
+                  "notes": "Partner shadow or ball-drop reaction"
+                },
+                {
+                  "id": "p1_w1_d3_ex6",
+                  "series": "C1",
+                  "title": "Single-Leg Pogo Hops",
                   "sets": "3",
-                  "reps": "45 Sec",
+                  "reps": "15 / leg",
+                  "rest": "45s",
+                  "notes": "Build lower leg & ankle stiffness"
+                }
+              ]
+            },
+            {
+              "id": "p1_w1_d4",
+              "name": "Day 4: Volleyball Skill Training",
+              "exercises": [
+                {
+                  "id": "p1_w1_d4_ex1",
+                  "series": "Mobility",
+                  "title": "Pre-Court Mobility Warmup",
+                  "sets": "1",
+                  "reps": "5 Min",
+                  "rest": "0s",
+                  "notes": "Open-book thoracic T-spine rotations & hip openers"
+                },
+                {
+                  "id": "p1_w1_d4_ex2",
+                  "series": "Court",
+                  "title": "Transitional Movement & Rally Endurance",
+                  "sets": "1",
+                  "reps": "Session",
+                  "rest": "Varies",
+                  "notes": "Defense-to-offense transition, setting/hitting & serve accuracy"
+                }
+              ]
+            },
+            {
+              "id": "p1_w1_d5_day",
+              "name": "Day 5: Shoulder Care & Core Stability",
+              "exercises": [
+                {
+                  "id": "p1_w1_d5_ex1",
+                  "series": "A1",
+                  "title": "Banded Y-T-W-L Circuit",
+                  "sets": "3",
+                  "reps": "10 Each",
+                  "rest": "45s",
+                  "notes": "Scapular & rotator cuff care"
+                },
+                {
+                  "id": "p1_w1_d5_ex2",
+                  "series": "A2",
+                  "title": "Banded External Rotations",
+                  "sets": "3",
+                  "reps": "12 / arm",
+                  "rest": "45s",
+                  "notes": "Keep elbow pinned to ribcage"
+                },
+                {
+                  "id": "p1_w1_d5_ex3",
+                  "series": "A3",
+                  "title": "Scapular Push-ups",
+                  "sets": "3",
+                  "reps": "10",
+                  "rest": "45s",
+                  "notes": "Protract scapulae at top"
+                },
+                {
+                  "id": "p1_w1_d5_ex4",
+                  "series": "B1",
+                  "title": "Paloff Press (Band or Cable)",
+                  "sets": "3",
+                  "reps": "10 / side",
+                  "rest": "45s",
+                  "notes": "Anti-rotational core stability"
+                },
+                {
+                  "id": "p1_w1_d5_ex5",
+                  "series": "B2",
+                  "title": "Side Planks with Hip Dips",
+                  "sets": "3",
+                  "reps": "30 sec / side",
+                  "rest": "45s",
+                  "notes": "Brace lateral core"
+                },
+                {
+                  "id": "p1_w1_d5_ex6",
+                  "series": "B3",
+                  "title": "Bird-Dogs",
+                  "sets": "3",
+                  "reps": "10 / side",
                   "rest": "30s",
-                  "notes": "Squeeze glutes & hold flat bridge"
+                  "notes": "Maintain flat back & full extension"
+                },
+                {
+                  "id": "p1_w1_d5_ex7",
+                  "series": "C1",
+                  "title": "Suitcase Carries",
+                  "sets": "3",
+                  "reps": "40 Yds / side",
+                  "rest": "45s",
+                  "notes": "Grip & shoulder anti-lateral flex stability"
+                }
+              ]
+            },
+            {
+              "id": "p1_w1_d6_day",
+              "name": "Day 6: Volleyball Skill Training",
+              "exercises": [
+                {
+                  "id": "p1_w1_d6_ex1",
+                  "series": "Court",
+                  "title": "Game-Speed Execution & Scrimmages",
+                  "sets": "1",
+                  "reps": "Session",
+                  "rest": "Varies",
+                  "notes": "Defensive communication, live serve receive, transition speed"
+                },
+                {
+                  "id": "p1_w1_d6_ex2",
+                  "series": "Recovery",
+                  "title": "Full-Body Static Stretching",
+                  "sets": "1",
+                  "reps": "10 Min",
+                  "rest": "0s",
+                  "notes": "Focus on hamstrings, hip flexors, and shoulders"
+                }
+              ]
+            },
+            {
+              "id": "p1_w1_d7_day",
+              "name": "Day 7: Complete Rest & Active Recovery",
+              "exercises": [
+                {
+                  "id": "p1_w1_d7_ex1",
+                  "series": "Rest",
+                  "title": "Active Recovery & Mobility",
+                  "sets": "1",
+                  "reps": "Walk / Stretch",
+                  "rest": "0s",
+                  "notes": "Light walk, foam rolling, gentle mobility work"
+                },
+                {
+                  "id": "p1_w1_d7_ex2",
+                  "series": "Fuel",
+                  "title": "Hydration & Refuel Protocol",
+                  "sets": "1",
+                  "reps": "Full Day",
+                  "rest": "0s",
+                  "notes": "Rehydrate (64-80 oz) & replenish protein/carbs for tissue repair"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase2",
+      "name": "Phase 2: Power Output & Advanced Footwork (Weeks 2–3)",
+      "weeks": [
+        {
+          "id": "p2_w2",
+          "name": "Week 2",
+          "days": [
+            {
+              "id": "p2_w2_d1",
+              "name": "Day 1: Plyometric Power & Eccentric Loading",
+              "exercises": [
+                {
+                  "id": "p2_w2_d1_ex1",
+                  "series": "Warmup",
+                  "title": "Dynamic Warm-up",
+                  "sets": "1",
+                  "reps": "5 Min",
+                  "rest": "0s",
+                  "notes": "Ankle pogos, leg swings, hip openers, band side shuffles"
+                },
+                {
+                  "id": "p2_w2_d1_ex2",
+                  "series": "A1",
+                  "title": "Depth Jumps (12\" Box Drop to Jump)",
+                  "sets": "4",
+                  "reps": "4",
+                  "rest": "60s",
+                  "notes": "Minimum ground contact time"
+                },
+                {
+                  "id": "p2_w2_d1_ex3",
+                  "series": "A2",
+                  "title": "Continuous Lateral Hurdle Hops (6-8\" Hurdles)",
+                  "sets": "3",
+                  "reps": "5 hops ea way",
+                  "rest": "60s",
+                  "notes": "Fast foot contact"
+                },
+                {
+                  "id": "p2_w2_d1_ex4",
+                  "series": "A3",
+                  "title": "Approach Jump Mechanics",
+                  "sets": "4",
+                  "reps": "3",
+                  "rest": "60s",
+                  "notes": "Penultimate step acceleration"
+                },
+                {
+                  "id": "p2_w2_d1_ex5",
+                  "series": "B1",
+                  "title": "Trap Bar Deadlifts / Front Squats",
+                  "sets": "4",
+                  "reps": "5",
+                  "rest": "90s",
+                  "notes": "Explosive concentric drive"
+                },
+                {
+                  "id": "p2_w2_d1_ex6",
+                  "series": "B2",
+                  "title": "Dumbbell Step-ups to Knee Drive",
+                  "sets": "3",
+                  "reps": "6 / leg",
+                  "rest": "60s",
+                  "notes": "Drive top leg explosively"
+                },
+                {
+                  "id": "p2_w2_d1_ex7",
+                  "series": "B3",
+                  "title": "Dumbbell RDLs (3-Sec Eccentric)",
+                  "sets": "3",
+                  "reps": "8",
+                  "rest": "60s",
+                  "notes": "3-second eccentric lowering"
+                },
+                {
+                  "id": "p2_w2_d1_ex8",
+                  "series": "C1",
+                  "title": "Medicine Ball Slam to Sprawl",
+                  "sets": "3",
+                  "reps": "8",
+                  "rest": "45s",
+                  "notes": "Explosive core power"
+                }
+              ]
+            },
+            {
+              "id": "p2_w2_d2",
+              "name": "Day 2: Volleyball Skill Training (High Intensity)",
+              "exercises": [
+                {
+                  "id": "p2_w2_d2_ex1",
+                  "series": "Court",
+                  "title": "Out-of-System Passing & Sprawls",
+                  "sets": "1",
+                  "reps": "Session",
+                  "rest": "Varies",
+                  "notes": "Diving/sprawling recovery & high-velocity serve receive"
+                },
+                {
+                  "id": "p2_w2_d2_ex2",
+                  "series": "Recovery",
+                  "title": "Quad, Calf & Hip Flexor Rolling",
+                  "sets": "1",
+                  "reps": "5 Min",
+                  "rest": "0s",
+                  "notes": "Targeted foam rolling post-session"
+                }
+              ]
+            },
+            {
+              "id": "p2_w2_d3",
+              "name": "Day 3: Advanced Agility & Reactive Speed",
+              "exercises": [
+                {
+                  "id": "p2_w2_d3_ex1",
+                  "series": "Warmup",
+                  "title": "Dynamic Warm-up",
+                  "sets": "1",
+                  "reps": "5 Min",
+                  "rest": "0s",
+                  "notes": "Skipping progressions, carioca with burst, light sprint acceleration"
+                },
+                {
+                  "id": "p2_w2_d3_ex2",
+                  "series": "A1",
+                  "title": "Crossover Step to Lateral Shuffle",
+                  "sets": "4",
+                  "reps": "12 Yds",
+                  "rest": "45s",
+                  "notes": "Base-to-boundary recovery"
+                },
+                {
+                  "id": "p2_w2_d3_ex3",
+                  "series": "A2",
+                  "title": "Pro Agility / 5-10-5 Shuttle",
+                  "sets": "4",
+                  "reps": "1 Round",
+                  "rest": "60s",
+                  "notes": "Sharp hip turn, low center of gravity"
+                },
+                {
+                  "id": "p2_w2_d3_ex4",
+                  "series": "A3",
+                  "title": "Reactive Ball-Drop Sprints",
+                  "sets": "4",
+                  "reps": "5",
+                  "rest": "45s",
+                  "notes": "Catch ball within 2 bounces"
+                },
+                {
+                  "id": "p2_w2_d3_ex5",
+                  "series": "B1",
+                  "title": "Star Drill (5-Point Reaction)",
+                  "sets": "3",
+                  "reps": "10 sec efforts",
+                  "rest": "45s",
+                  "notes": "Multi-directional reaction off signals"
+                },
+                {
+                  "id": "p2_w2_d3_ex6",
+                  "series": "C1",
+                  "title": "DB Single-Leg Calf Raises",
+                  "sets": "3",
+                  "reps": "12 / leg",
+                  "rest": "45s",
+                  "notes": "Slow eccentric lowering for Achilles resilience"
+                }
+              ]
+            },
+            {
+              "id": "p2_w2_d4",
+              "name": "Day 4: Volleyball Skill Training (Transition Focus)",
+              "exercises": [
+                {
+                  "id": "p2_w2_d4_ex1",
+                  "series": "Mobility",
+                  "title": "Banded Shoulder & Thoracic Warmup",
+                  "sets": "1",
+                  "reps": "5 Min",
+                  "rest": "0s",
+                  "notes": "Shoulder dislocations, T-spine rotations, ankle mobility"
+                },
+                {
+                  "id": "p2_w2_d4_ex2",
+                  "series": "Court",
+                  "title": "Dig-to-Transition & Swing Blocking",
+                  "sets": "1",
+                  "reps": "Session",
+                  "rest": "Varies",
+                  "notes": "Seamless transition speed & out-of-system setting"
+                }
+              ]
+            },
+            {
+              "id": "p2_w2_d5",
+              "name": "Day 5: Shoulder Power & Core Anti-Rotation",
+              "exercises": [
+                {
+                  "id": "p2_w2_d5_ex1",
+                  "series": "A1",
+                  "title": "Half-Kneeling Single-Arm DB Press",
+                  "sets": "3",
+                  "reps": "8 / arm",
+                  "rest": "60s",
+                  "notes": "Brace core, vertical press"
+                },
+                {
+                  "id": "p2_w2_d5_ex2",
+                  "series": "A2",
+                  "title": "MB Rotational Wall Throws",
+                  "sets": "4",
+                  "reps": "6 / side",
+                  "rest": "45s",
+                  "notes": "Explosive hip rotation"
+                },
+                {
+                  "id": "p2_w2_d5_ex3",
+                  "series": "A3",
+                  "title": "Face Pulls with External Rotation",
+                  "sets": "3",
+                  "reps": "12",
+                  "rest": "45s",
+                  "notes": "Cable or heavy resistance band"
+                },
+                {
+                  "id": "p2_w2_d5_ex4",
+                  "series": "B1",
+                  "title": "Prone Cobra Hold",
+                  "sets": "3",
+                  "reps": "30 sec holds",
+                  "rest": "30s",
+                  "notes": "Posterior chain & upper back endurance"
+                },
+                {
+                  "id": "p2_w2_d5_ex5",
+                  "series": "B2",
+                  "title": "Cable/Band Anti-Rotation Press-Outs",
+                  "sets": "3",
+                  "reps": "8 steps / side",
+                  "rest": "45s",
+                  "notes": "Paloff hold with stepping motion"
+                },
+                {
+                  "id": "p2_w2_d5_ex6",
+                  "series": "B3",
+                  "title": "Hanging Leg Raises / Knees-to-Elbows",
+                  "sets": "3",
+                  "reps": "10",
+                  "rest": "45s",
+                  "notes": "Control lowering phase"
+                },
+                {
+                  "id": "p2_w2_d5_ex7",
+                  "series": "C1",
+                  "title": "Farmer's Walk Carry",
+                  "sets": "3",
+                  "reps": "50 Yds",
+                  "rest": "45s",
+                  "notes": "Grip & trunk rigidity under load"
+                }
+              ]
+            },
+            {
+              "id": "p2_w2_d6",
+              "name": "Day 6: Volleyball Skill Training (Game-Speed Scrimmage)",
+              "exercises": [
+                {
+                  "id": "p2_w2_d6_ex1",
+                  "series": "Court",
+                  "title": "High-Speed Match Play & Decision Making",
+                  "sets": "1",
+                  "reps": "Session",
+                  "rest": "Varies",
+                  "notes": "Live defensive reads, transition coverage, serving under fatigue"
+                },
+                {
+                  "id": "p2_w2_d6_ex2",
+                  "series": "Recovery",
+                  "title": "Full-Body Static Mobility",
+                  "sets": "1",
+                  "reps": "10 Min",
+                  "rest": "0s",
+                  "notes": "Couch stretch, pigeon pose, shoulder doorway stretch"
+                }
+              ]
+            },
+            {
+              "id": "p2_w2_d7",
+              "name": "Day 7: Active Recovery & Rest",
+              "exercises": [
+                {
+                  "id": "p2_w2_d7_ex1",
+                  "series": "Rest",
+                  "title": "Active Recovery Protocol",
+                  "sets": "1",
+                  "reps": "Walk / Mobility",
+                  "rest": "0s",
+                  "notes": "Light walking, contrast bath/shower, low-intensity mobility"
+                },
+                {
+                  "id": "p2_w2_d7_ex2",
+                  "series": "Fuel",
+                  "title": "Glycogen Reload & Nutrition",
+                  "sets": "1",
+                  "reps": "Full Day",
+                  "rest": "0s",
+                  "notes": "Maintain 65-85g protein & complex carbs to reload muscle glycogen"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p2_w3",
+          "name": "Week 3",
+          "days": [
+            {
+              "id": "p2_w3_d1",
+              "name": "Day 1: Plyometric Power & Eccentric Loading",
+              "exercises": [
+                {
+                  "id": "p2_w3_d1_ex1",
+                  "series": "Warmup",
+                  "title": "Dynamic Warm-up",
+                  "sets": "1",
+                  "reps": "5 Min",
+                  "rest": "0s",
+                  "notes": "Ankle pogos, leg swings, hip openers, band side shuffles"
+                },
+                {
+                  "id": "p2_w3_d1_ex2",
+                  "series": "A1",
+                  "title": "Depth Jumps (12\" Box Drop to Jump)",
+                  "sets": "4",
+                  "reps": "4",
+                  "rest": "60s",
+                  "notes": "Minimum ground contact time"
+                },
+                {
+                  "id": "p2_w3_d1_ex3",
+                  "series": "A2",
+                  "title": "Continuous Lateral Hurdle Hops",
+                  "sets": "3",
+                  "reps": "5 hops ea way",
+                  "rest": "60s",
+                  "notes": "Fast foot contact"
+                },
+                {
+                  "id": "p2_w3_d1_ex4",
+                  "series": "A3",
+                  "title": "Approach Jump Mechanics",
+                  "sets": "4",
+                  "reps": "3",
+                  "rest": "60s",
+                  "notes": "Penultimate step acceleration"
+                },
+                {
+                  "id": "p2_w3_d1_ex5",
+                  "series": "B1",
+                  "title": "Trap Bar Deadlifts / Front Squats",
+                  "sets": "4",
+                  "reps": "5",
+                  "rest": "90s",
+                  "notes": "Explosive concentric drive"
+                },
+                {
+                  "id": "p2_w3_d1_ex6",
+                  "series": "B2",
+                  "title": "Dumbbell Step-ups to Knee Drive",
+                  "sets": "3",
+                  "reps": "6 / leg",
+                  "rest": "60s",
+                  "notes": "Drive top leg explosively"
+                },
+                {
+                  "id": "p2_w3_d1_ex7",
+                  "series": "B3",
+                  "title": "Dumbbell RDLs (3-Sec Eccentric)",
+                  "sets": "3",
+                  "reps": "8",
+                  "rest": "60s",
+                  "notes": "3-second eccentric lowering"
+                },
+                {
+                  "id": "p2_w3_d1_ex8",
+                  "series": "C1",
+                  "title": "Medicine Ball Slam to Sprawl",
+                  "sets": "3",
+                  "reps": "8",
+                  "rest": "45s",
+                  "notes": "Explosive core power"
+                }
+              ]
+            },
+            {
+              "id": "p2_w3_d2",
+              "name": "Day 2: Volleyball Skill Training (High Intensity)",
+              "exercises": [
+                {
+                  "id": "p2_w3_d2_ex1",
+                  "series": "Court",
+                  "title": "Out-of-System Passing & Sprawls",
+                  "sets": "1",
+                  "reps": "Session",
+                  "rest": "Varies",
+                  "notes": "Diving/sprawling recovery & high-velocity serve receive"
+                },
+                {
+                  "id": "p2_w3_d2_ex2",
+                  "series": "Recovery",
+                  "title": "Quad, Calf & Hip Flexor Rolling",
+                  "sets": "1",
+                  "reps": "5 Min",
+                  "rest": "0s",
+                  "notes": "Targeted foam rolling post-session"
+                }
+              ]
+            },
+            {
+              "id": "p2_w3_d3",
+              "name": "Day 3: Advanced Agility & Reactive Speed",
+              "exercises": [
+                {
+                  "id": "p2_w3_d3_ex1",
+                  "series": "Warmup",
+                  "title": "Dynamic Warm-up",
+                  "sets": "1",
+                  "reps": "5 Min",
+                  "rest": "0s",
+                  "notes": "Skipping progressions, carioca with burst, light sprint acceleration"
+                },
+                {
+                  "id": "p2_w3_d3_ex2",
+                  "series": "A1",
+                  "title": "Crossover Step to Lateral Shuffle",
+                  "sets": "4",
+                  "reps": "12 Yds",
+                  "rest": "45s",
+                  "notes": "Base-to-boundary recovery"
+                },
+                {
+                  "id": "p2_w3_d3_ex3",
+                  "series": "A2",
+                  "title": "Pro Agility / 5-10-5 Shuttle",
+                  "sets": "4",
+                  "reps": "1 Round",
+                  "rest": "60s",
+                  "notes": "Sharp hip turn, low center of gravity"
+                },
+                {
+                  "id": "p2_w3_d3_ex4",
+                  "series": "A3",
+                  "title": "Reactive Ball-Drop Sprints",
+                  "sets": "4",
+                  "reps": "5",
+                  "rest": "45s",
+                  "notes": "Catch ball within 2 bounces"
+                },
+                {
+                  "id": "p2_w3_d3_ex5",
+                  "series": "B1",
+                  "title": "Star Drill (5-Point Reaction)",
+                  "sets": "3",
+                  "reps": "10 sec efforts",
+                  "rest": "45s",
+                  "notes": "Multi-directional reaction off signals"
+                },
+                {
+                  "id": "p2_w3_d3_ex6",
+                  "series": "C1",
+                  "title": "DB Single-Leg Calf Raises",
+                  "sets": "3",
+                  "reps": "12 / leg",
+                  "rest": "45s",
+                  "notes": "Slow eccentric lowering for Achilles resilience"
+                }
+              ]
+            },
+            {
+              "id": "p2_w3_d4",
+              "name": "Day 4: Volleyball Skill Training (Transition Focus)",
+              "exercises": [
+                {
+                  "id": "p2_w3_d4_ex1",
+                  "series": "Mobility",
+                  "title": "Banded Shoulder & Thoracic Warmup",
+                  "sets": "1",
+                  "reps": "5 Min",
+                  "rest": "0s",
+                  "notes": "Shoulder dislocations, T-spine rotations, ankle mobility"
+                },
+                {
+                  "id": "p2_w3_d4_ex2",
+                  "series": "Court",
+                  "title": "Dig-to-Transition & Swing Blocking",
+                  "sets": "1",
+                  "reps": "Session",
+                  "rest": "Varies",
+                  "notes": "Seamless transition speed & out-of-system setting"
+                }
+              ]
+            },
+            {
+              "id": "p2_w3_d5",
+              "name": "Day 5: Shoulder Power & Core Anti-Rotation",
+              "exercises": [
+                {
+                  "id": "p2_w3_d5_ex1",
+                  "series": "A1",
+                  "title": "Half-Kneeling Single-Arm DB Press",
+                  "sets": "3",
+                  "reps": "8 / arm",
+                  "rest": "60s",
+                  "notes": "Brace core, vertical press"
+                },
+                {
+                  "id": "p2_w3_d5_ex2",
+                  "series": "A2",
+                  "title": "MB Rotational Wall Throws",
+                  "sets": "4",
+                  "reps": "6 / side",
+                  "rest": "45s",
+                  "notes": "Explosive hip rotation"
+                },
+                {
+                  "id": "p2_w3_d5_ex3",
+                  "series": "A3",
+                  "title": "Face Pulls with External Rotation",
+                  "sets": "3",
+                  "reps": "12",
+                  "rest": "45s",
+                  "notes": "Cable or heavy resistance band"
+                },
+                {
+                  "id": "p2_w3_d5_ex4",
+                  "series": "B1",
+                  "title": "Prone Cobra Hold",
+                  "sets": "3",
+                  "reps": "30 sec holds",
+                  "rest": "30s",
+                  "notes": "Posterior chain & upper back endurance"
+                },
+                {
+                  "id": "p2_w3_d5_ex5",
+                  "series": "B2",
+                  "title": "Cable/Band Anti-Rotation Press-Outs",
+                  "sets": "3",
+                  "reps": "8 steps / side",
+                  "rest": "45s",
+                  "notes": "Paloff hold with stepping motion"
+                },
+                {
+                  "id": "p2_w3_d5_ex6",
+                  "series": "B3",
+                  "title": "Hanging Leg Raises / Knees-to-Elbows",
+                  "sets": "3",
+                  "reps": "10",
+                  "rest": "45s",
+                  "notes": "Control lowering phase"
+                },
+                {
+                  "id": "p2_w3_d5_ex7",
+                  "series": "C1",
+                  "title": "Farmer's Walk Carry",
+                  "sets": "3",
+                  "reps": "50 Yds",
+                  "rest": "45s",
+                  "notes": "Grip & trunk rigidity under load"
+                }
+              ]
+            },
+            {
+              "id": "p2_w3_d6",
+              "name": "Day 6: Volleyball Skill Training (Game-Speed Scrimmage)",
+              "exercises": [
+                {
+                  "id": "p2_w3_d6_ex1",
+                  "series": "Court",
+                  "title": "High-Speed Match Play & Decision Making",
+                  "sets": "1",
+                  "reps": "Session",
+                  "rest": "Varies",
+                  "notes": "Live defensive reads, transition coverage, serving under fatigue"
+                },
+                {
+                  "id": "p2_w3_d6_ex2",
+                  "series": "Recovery",
+                  "title": "Full-Body Static Mobility",
+                  "sets": "1",
+                  "reps": "10 Min",
+                  "rest": "0s",
+                  "notes": "Couch stretch, pigeon pose, shoulder doorway stretch"
+                }
+              ]
+            },
+            {
+              "id": "p2_w3_d7",
+              "name": "Day 7: Active Recovery & Rest",
+              "exercises": [
+                {
+                  "id": "p2_w3_d7_ex1",
+                  "series": "Rest",
+                  "title": "Active Recovery Protocol",
+                  "sets": "1",
+                  "reps": "Walk / Mobility",
+                  "rest": "0s",
+                  "notes": "Light walking, contrast bath/shower, low-intensity mobility"
+                },
+                {
+                  "id": "p2_w3_d7_ex2",
+                  "series": "Fuel",
+                  "title": "Glycogen Reload & Nutrition",
+                  "sets": "1",
+                  "reps": "Full Day",
+                  "rest": "0s",
+                  "notes": "Maintain 65-85g protein & complex carbs to reload muscle glycogen"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase3",
+      "name": "Phase 3: Peak Performance & Match Readiness (Week 4)",
+      "weeks": [
+        {
+          "id": "p3_w4",
+          "name": "Week 4",
+          "days": [
+            {
+              "id": "p3_w4_d1",
+              "name": "Day 1: Max Velocity & Peak Jump Height",
+              "exercises": [
+                {
+                  "id": "p3_w4_d1_ex1",
+                  "series": "Warmup",
+                  "title": "Dynamic Warm-up",
+                  "sets": "1",
+                  "reps": "5 Min",
+                  "rest": "0s",
+                  "notes": "Ankle pogos, leg swings, high knees, dynamic hip openers"
+                },
+                {
+                  "id": "p3_w4_d1_ex2",
+                  "series": "A1",
+                  "title": "Approach Jumps to Max Reach",
+                  "sets": "3",
+                  "reps": "3",
+                  "rest": "90s",
+                  "notes": "100% effort, full rest between reps"
+                },
+                {
+                  "id": "p3_w4_d1_ex3",
+                  "series": "A2",
+                  "title": "Single-Leg Bound to Broad Jump",
+                  "sets": "3",
+                  "reps": "3 / leg",
+                  "rest": "60s",
+                  "notes": "Explosive horizontal pop"
+                },
+                {
+                  "id": "p3_w4_d1_ex4",
+                  "series": "A3",
+                  "title": "Hurdle Jump to Immediate Box Jump (18-24\")",
+                  "sets": "3",
+                  "reps": "3",
+                  "rest": "60s",
+                  "notes": "Fast ground reaction time"
+                },
+                {
+                  "id": "p3_w4_d1_ex5",
+                  "series": "B1",
+                  "title": "Trap Bar Jumps (Light Load 20-30%)",
+                  "sets": "3",
+                  "reps": "3",
+                  "rest": "90s",
+                  "notes": "Maximum concentric velocity"
+                },
+                {
+                  "id": "p3_w4_d1_ex6",
+                  "series": "B2",
+                  "title": "Single-Arm Dumbbell Snatch",
+                  "sets": "3",
+                  "reps": "4 / arm",
+                  "rest": "60s",
+                  "notes": "Explosive triple extension"
+                },
+                {
+                  "id": "p3_w4_d1_ex7",
+                  "series": "B3",
+                  "title": "Dumbbell Bulgarian Split Squats",
+                  "sets": "2",
+                  "reps": "5 / leg",
+                  "rest": "60s",
+                  "notes": "Fast concentric up"
+                },
+                {
+                  "id": "p3_w4_d1_ex8",
+                  "series": "C1",
+                  "title": "Overhead MB Power Throws",
+                  "sets": "3",
+                  "reps": "4",
+                  "rest": "45s",
+                  "notes": "Core explosive release"
+                }
+              ]
+            },
+            {
+              "id": "p3_w4_d2",
+              "name": "Day 2: Volleyball Skill Training (Sharp & Tactical)",
+              "exercises": [
+                {
+                  "id": "p3_w4_d2_ex1",
+                  "series": "Court",
+                  "title": "Serve Receive & Transition Precision",
+                  "sets": "1",
+                  "reps": "Session",
+                  "rest": "Varies",
+                  "notes": "High focus on quality over high-volume conditioning"
+                },
+                {
+                  "id": "p3_w4_d2_ex2",
+                  "series": "Recovery",
+                  "title": "Targeted Quad & Hamstring Rolling",
+                  "sets": "1",
+                  "reps": "5 Min",
+                  "rest": "0s",
+                  "notes": "Foam roll leg musculature post-session"
+                }
+              ]
+            },
+            {
+              "id": "p3_w4_d3",
+              "name": "Day 3: Speed & Reactive Deceleration Taper",
+              "exercises": [
+                {
+                  "id": "p3_w4_d3_ex1",
+                  "series": "Warmup",
+                  "title": "Dynamic Warm-up",
+                  "sets": "1",
+                  "reps": "5 Min",
+                  "rest": "0s",
+                  "notes": "Short sprint builds, side shuffles, arm swings"
+                },
+                {
+                  "id": "p3_w4_d3_ex2",
+                  "series": "A1",
+                  "title": "5-Yard Explosive Sprint Start",
+                  "sets": "4",
+                  "reps": "1",
+                  "rest": "60s",
+                  "notes": "Full rest between efforts"
+                },
+                {
+                  "id": "p3_w4_d3_ex3",
+                  "series": "A2",
+                  "title": "Lateral Shuffle to Reactive Burst",
+                  "sets": "3",
+                  "reps": "6 Yds ea",
+                  "rest": "45s",
+                  "notes": "Sharp change of direction"
+                },
+                {
+                  "id": "p3_w4_d3_ex4",
+                  "series": "A3",
+                  "title": "Tennis Ball Drop & Sprint React",
+                  "sets": "3",
+                  "reps": "3",
+                  "rest": "45s",
+                  "notes": "Catch ball before 2nd bounce"
+                },
+                {
+                  "id": "p3_w4_d3_ex5",
+                  "series": "B1",
+                  "title": "Low-Amplitude Pogo Jumps",
+                  "sets": "2",
+                  "reps": "10 sec",
+                  "rest": "45s",
+                  "notes": "Achilles elasticity & stiffness"
+                }
+              ]
+            },
+            {
+              "id": "p3_w4_d4",
+              "name": "Day 4: Volleyball Skill Training (Match Simulation)",
+              "exercises": [
+                {
+                  "id": "p3_w4_d4_ex1",
+                  "series": "Mobility",
+                  "title": "Thoracic & Shoulder Band Warmup",
+                  "sets": "1",
+                  "reps": "5 Min",
+                  "rest": "0s",
+                  "notes": "Open-book T-spine rotations, leg swings, shoulder band work"
+                },
+                {
+                  "id": "p3_w4_d4_ex2",
+                  "series": "Court",
+                  "title": "Transition Velocity & Out-of-System Plays",
+                  "sets": "1",
+                  "reps": "Session",
+                  "rest": "Varies",
+                  "notes": "Simulate key match scenarios, out-of-system coverage, clutch serving"
+                }
+              ]
+            },
+            {
+              "id": "p3_w4_d5",
+              "name": "Day 5: Overhead Speed & Neuromuscular Priming",
+              "exercises": [
+                {
+                  "id": "p3_w4_d5_ex1",
+                  "series": "A1",
+                  "title": "Kneeling MB Chest Pass / Wall Slams",
+                  "sets": "3",
+                  "reps": "4 / side",
+                  "rest": "45s",
+                  "notes": "Explosive overhead velocity"
+                },
+                {
+                  "id": "p3_w4_d5_ex2",
+                  "series": "A2",
+                  "title": "Banded Y-T-W Circuit",
+                  "sets": "2",
+                  "reps": "8 Each",
+                  "rest": "45s",
+                  "notes": "Keep shoulder stabilizers sharp"
+                },
+                {
+                  "id": "p3_w4_d5_ex3",
+                  "series": "A3",
+                  "title": "Dumbbell Push Press",
+                  "sets": "3",
+                  "reps": "4",
+                  "rest": "60s",
+                  "notes": "Explosive hip drive"
+                },
+                {
+                  "id": "p3_w4_d5_ex4",
+                  "series": "B1",
+                  "title": "Standing Pallof Press (Band/Cable)",
+                  "sets": "2",
+                  "reps": "8 / side",
+                  "rest": "45s",
+                  "notes": "Trunk rigidity priming"
+                },
+                {
+                  "id": "p3_w4_d5_ex5",
+                  "series": "B2",
+                  "title": "High Plank T-Rotations",
+                  "sets": "2",
+                  "reps": "6 / side",
+                  "rest": "30s",
+                  "notes": "Controlled core anti-rotation"
+                }
+              ]
+            },
+            {
+              "id": "p3_w4_d6",
+              "name": "Day 6: Volleyball Skill Training (Peak Match Play)",
+              "exercises": [
+                {
+                  "id": "p3_w4_d6_ex1",
+                  "series": "Court",
+                  "title": "High-Energy Scrimmage & Rhythm Work",
+                  "sets": "1",
+                  "reps": "Session",
+                  "rest": "Varies",
+                  "notes": "Court communication, aggressive back-row defense, serving confidence"
+                },
+                {
+                  "id": "p3_w4_d6_ex2",
+                  "series": "Recovery",
+                  "title": "Full-Body Static Stretching",
+                  "sets": "1",
+                  "reps": "10 Min",
+                  "rest": "0s",
+                  "notes": "Focus on hips, hamstrings, and shoulders ahead of competition"
+                }
+              ]
+            },
+            {
+              "id": "p3_w4_d7",
+              "name": "Day 7: Full Rest & Tournament Preparation",
+              "exercises": [
+                {
+                  "id": "p3_w4_d7_ex1",
+                  "series": "Rest",
+                  "title": "Tournament Prep & Active Mobility",
+                  "sets": "1",
+                  "reps": "Walk / Mobility",
+                  "rest": "0s",
+                  "notes": "Light walking, gentle foam rolling, fluid mobility work"
+                },
+                {
+                  "id": "p3_w4_d7_ex2",
+                  "series": "Fuel",
+                  "title": "Pre-Tournament Fueling & Sleep",
+                  "sets": "1",
+                  "reps": "Full Day",
+                  "rest": "0s",
+                  "notes": "Hydrate (64-80 oz + electrolytes), high-quality carbs, aim for 8-9 hrs sleep"
                 }
               ]
             }
