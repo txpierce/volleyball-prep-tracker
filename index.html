@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volleyball Performance Tracker</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #0284c7;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --success: #22c55e;
+            --border: #334155;
+            --badge-bg: #0369a1;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 1.4rem;
+            margin: 0 0 4px 0;
+        }
+
+        header p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .selector-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+            background: var(--card-bg);
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .selector-group label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 2px;
+            display: block;
+        }
+
+        select {
+            width: 100%;
+            background: var(--bg-color);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+            cursor: pointer;
+        }
+
+        select:focus {
+            border-color: var(--accent);
+        }
+
+        .exercise-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .exercise-info {
+            flex: 1;
+            padding-right: 12px;
+        }
+
+        .series-badge {
+            display: inline-block;
+            background: var(--badge-bg);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-bottom: 4px;
+        }
+
+        .exercise-title {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .exercise-details {
+            font-size: 0.825rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .exercise-notes {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .custom-checkbox {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .custom-checkbox.checked {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        .custom-checkbox.checked::after {
+            content: "✓";
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .reset-btn {
+            width: 100%;
+            background: transparent;
+            border: 1px dashed var(--border);
+            color: var(--text-muted);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 16px;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+
+        .status-msg {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <header>
+        <h1>Volleyball Performance App</h1>
+        <p>Junior High 'A' Team Development</p>
+    </header>
+
+    <div class="selector-group">
+        <div>
+            <label for="phase-select">Phase</label>
+            <select id="phase-select" onchange="onPhaseChange()"></select>
+        </div>
+        <div>
+            <label for="week-select">Week</label>
+            <select id="week-select" onchange="onWeekChange()"></select>
+        </div>
+        <div>
+            <label for="day-select">Day</label>
+            <select id="day-select" onchange="onDayChange()"></select>
+        </div>
+    </div>
+
+    <div id="exercise-list">
+        <div class="status-msg">Loading workout program...</div>
+    </div>
+
+    <button class="reset-btn" onclick="resetCurrentDay()">Reset Today's Checkmarks</button>
+</div>
+
+<script>
+    let programData = { phases: [] };
+
+    async function initApp() {
+        try {
+            const response = await fetch('workouts.json');
+            if (!response.ok) throw new Error('Failed to load JSON');
+            programData = await response.json();
+            
+            populatePhases();
+        } catch (error) {
+            console.error('Error:', error);
+            document.getElementById('exercise-list').innerHTML = 
+                '<div class="status-msg">Error loading workouts.json data.</div>';
+        }
+    }
+
+    function populatePhases() {
+        const phaseSelect = document.getElementById('phase-select');
+        phaseSelect.innerHTML = '';
+
+        programData.phases.forEach((phase, index) => {
+            const opt = document.createElement('option');
+            opt.value = index;
+            opt.textContent = phase.name;
+            phaseSelect.appendChild(opt);
+        });
+
+        onPhaseChange();
+    }
+
+    function onPhaseChange() {
+        const phaseIndex = document.getElementById('phase-select').value;
+        const weekSelect = document.getElementById('week-select');
+        weekSelect.innerHTML = '';
+
+        const currentPhase = programData.phases[phaseIndex];
+        if (currentPhase && currentPhase.weeks) {
+            currentPhase.weeks.forEach((week, index) => {
+                const opt = document.createElement('option');
+                opt.value = index;
+                opt.textContent = week.name;
+                weekSelect.appendChild(opt);
+            });
+        }
+
+        onWeekChange();
+    }
+
+    function onWeekChange() {
+        const phaseIndex = document.getElementById('phase-select').value;
+        const weekIndex = document.getElementById('week-select').value;
+        const daySelect = document.getElementById('day-select');
+        daySelect.innerHTML = '';
+
+        const currentWeek = programData.phases[phaseIndex]?.weeks[weekIndex];
+        if (currentWeek && currentWeek.days) {
+            currentWeek.days.forEach((day, index) => {
+                const opt = document.createElement('option');
+                opt.value = index;
+                opt.textContent = day.name;
+                daySelect.appendChild(opt);
+            });
+        }
+
+        onDayChange();
+    }
+
+    function onDayChange() {
+        const phaseIndex = document.getElementById('phase-select').value;
+        const weekIndex = document.getElementById('week-select').value;
+        const dayIndex = document.getElementById('day-select').value;
+
+        const currentDay = programData.phases[phaseIndex]?.weeks[weekIndex]?.days[dayIndex];
+        renderExercises(currentDay);
+    }
+
+    function renderExercises(dayObj) {
+        const listContainer = document.getElementById('exercise-list');
+        listContainer.innerHTML = '';
+
+        if (!dayObj || !dayObj.exercises || dayObj.exercises.length === 0) {
+            listContainer.innerHTML = '<div class="status-msg">No lifts found for this day.</div>';
+            return;
+        }
+
+        dayObj.exercises.forEach(ex => {
+            const isChecked = localStorage.getItem(ex.id) === 'true';
+
+            const card = document.createElement('div');
+            card.className = 'exercise-card';
+            card.innerHTML = `
+                <div class="exercise-info">
+                    ${ex.series ? `<span class="series-badge">${ex.series}</span>` : ''}
+                    <div class="exercise-title">${ex.title}</div>
+                    <div class="exercise-details">${ex.sets} Sets × ${ex.reps} Reps • Rest: ${ex.rest}</div>
+                    ${ex.notes ? `<div class="exercise-notes">${ex.notes}</div>` : ''}
+                </div>
+                <div class="custom-checkbox ${isChecked ? 'checked' : ''}" onclick="toggleCheck(this, '${ex.id}')"></div>
+            `;
+            listContainer.appendChild(card);
+        });
+    }
+
+    function toggle
