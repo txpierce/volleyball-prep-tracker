@@ -14,7 +14,6 @@
             --accent-green: #10b981;
             --text-main: #f9fafb;
             --text-muted: #9ca3af;
-            --badge-bg: #1e293b;
         }
 
         * {
@@ -36,7 +35,7 @@
             max-width: 800px;
         }
 
-        /* Top Bar & Navigation */
+        /* Top Navigation */
         .nav-bar {
             display: flex;
             gap: 8px;
@@ -45,7 +44,6 @@
             border-radius: 40px;
             border: 1px solid var(--card-border);
             margin-bottom: 20px;
-            overflow-x: auto;
         }
 
         .nav-tab {
@@ -59,7 +57,6 @@
             font-size: 0.85rem;
             cursor: pointer;
             text-align: center;
-            white-space: nowrap;
             transition: all 0.2s;
         }
 
@@ -76,7 +73,7 @@
             display: block;
         }
 
-        /* Cards & Banners */
+        /* Cards & Banner */
         .card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
@@ -99,8 +96,35 @@
             margin-bottom: 16px;
         }
 
-        .hero-card {
+        .resume-banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1e293b;
+            border: 1px solid var(--card-border);
             border-left: 4px solid var(--accent-yellow);
+            padding: 14px 18px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+
+        .btn-resume {
+            background: var(--accent-yellow);
+            color: #000;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: transform 0.1s;
+        }
+
+        .btn-resume:active {
+            transform: scale(0.97);
         }
 
         .hero-title {
@@ -223,6 +247,7 @@
             border-radius: 6px;
             height: 60px;
             position: relative;
+            overflow: hidden;
         }
 
         .matrix-bar.active {
@@ -235,6 +260,7 @@
             width: 100%;
             background: var(--accent-yellow);
             border-radius: 4px;
+            transition: height 0.3s ease;
         }
 
         .matrix-lbl {
@@ -243,7 +269,7 @@
             font-weight: 700;
         }
 
-        /* Dropdowns & Forms */
+        /* Workout Logs */
         .selector-group {
             display: flex;
             flex-direction: column;
@@ -261,7 +287,7 @@
             margin-bottom: 4px;
         }
 
-        select, input {
+        select {
             width: 100%;
             background: #0f172a;
             color: var(--text-main);
@@ -271,20 +297,12 @@
             font-size: 0.95rem;
         }
 
-        /* Workout Item Card */
         .exercise-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 12px;
             padding: 16px;
             margin-bottom: 12px;
-        }
-
-        .exercise-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
         }
 
         .series-badge {
@@ -294,11 +312,14 @@
             font-weight: 800;
             padding: 2px 8px;
             border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 4px;
         }
 
         .exercise-title {
             font-size: 1rem;
             font-weight: 700;
+            margin-bottom: 4px;
         }
 
         .exercise-details {
@@ -311,30 +332,57 @@
         .exercise-notes {
             font-size: 0.8rem;
             color: var(--text-muted);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
-        .custom-checkbox {
-            width: 28px;
-            height: 28px;
+        /* Per-Set Checkboxes */
+        .sets-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #1f2937;
+        }
+
+        .set-box {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #0f172a;
+            padding: 6px 10px;
             border-radius: 8px;
+            border: 1px solid var(--card-border);
+            cursor: pointer;
+        }
+
+        .set-box span {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        .set-checkbox {
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
             border: 2px solid var(--card-border);
             background: transparent;
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.2s;
         }
 
-        .custom-checkbox.checked {
+        .set-box.checked .set-checkbox {
             background: var(--accent-green);
             border-color: var(--accent-green);
         }
 
-        .custom-checkbox.checked::after {
+        .set-box.checked .set-checkbox::after {
             content: "✓";
             color: #fff;
+            font-size: 0.75rem;
             font-weight: bold;
         }
 
@@ -356,9 +404,9 @@
 
     <!-- Top Navigation -->
     <div class="nav-bar">
-        <button class="nav-tab active" onclick="switchTab('dashboard')">Dashboard</button>
-        <button class="nav-tab" onclick="switchTab('workout')">Workout Logs</button>
-        <button class="nav-tab" onclick="switchTab('nutrition')">Nutrition</button>
+        <button id="tab-dashboard-btn" class="nav-tab active" onclick="switchTab('dashboard')">Dashboard</button>
+        <button id="tab-workout-btn" class="nav-tab" onclick="switchTab('workout')">Workout Logs</button>
+        <button id="tab-nutrition-btn" class="nav-tab" onclick="switchTab('nutrition')">Nutrition</button>
     </div>
 
     <!-- DASHBOARD TAB -->
@@ -366,10 +414,18 @@
         
         <div class="banner-live">
             <span>● LIVE PROGRAM PROTOCOL</span>
-            <span id="current-date-display">Phase 1 • Active</span>
+            <span id="live-ticker">Loading Date & Time...</span>
         </div>
 
-        <div class="card hero-card">
+        <div class="resume-banner">
+            <div>
+                <div class="stat-label" style="color:var(--accent-yellow);">IN PROGRESS</div>
+                <div style="font-weight:700; font-size:0.95rem;" id="resume-lift-label">Phase 1 • Week 1 • Day 1</div>
+            </div>
+            <button class="btn-resume" onclick="switchTab('workout')">⚡ Resume Lift</button>
+        </div>
+
+        <div class="card">
             <div class="stat-label">ATHLETIC COMMAND CENTER</div>
             <div class="hero-title">Volleyball Performance Program</div>
             <div class="hero-sub">Junior High 'A' Team Prep & Division 1 Foundation</div>
@@ -377,8 +433,8 @@
 
         <div class="grid-3">
             <div class="stat-card">
-                <div class="stat-label">Phase Set Completion</div>
-                <div class="stat-value" id="completion-stat">0 / 48 Sets</div>
+                <div class="stat-label">Total Set Progress</div>
+                <div class="stat-value" id="completion-stat">0 / 0 Sets</div>
                 <div class="stat-sub" id="completion-pct">0% Completed</div>
             </div>
             <div class="stat-card">
@@ -390,19 +446,6 @@
                 <div class="stat-label">Daily Macro Target</div>
                 <div class="stat-value" style="font-size: 1.1rem; padding-top: 6px;">Growth & Recovery</div>
                 <div class="stat-sub">3 Balanced Meals + 2 Snacks</div>
-            </div>
-        </div>
-
-        <div class="grid-2">
-            <div class="card">
-                <div class="stat-label">Pre-Workout Fueling Window</div>
-                <div style="font-weight:700; margin-top:4px;">30–60 Min Before Practice</div>
-                <div class="stat-sub">Fast Carbs: Banana, Toast w/ Honey, or Fruit Squeeze</div>
-            </div>
-            <div class="card">
-                <div class="stat-label">Post-Practice Recovery</div>
-                <div style="font-weight:700; margin-top:4px;">Within 45 Minutes</div>
-                <div class="stat-sub">Protein + Carbs: Chocolate Milk or Greek Yogurt</div>
             </div>
         </div>
 
@@ -420,16 +463,18 @@
             <div class="card">
                 <div class="stat-label">Daily Recovery Check-In</div>
                 <div class="recovery-group">
+                    <select id="rec-mood" onchange="saveRecovery()">
+                        <option value="">Mood</option>
+                        <option value="focused">Focused</option>
+                        <option value="energetic">Energetic</option>
+                        <option value="tired">Tired</option>
+                        <option value="sore">Sore</option>
+                    </select>
                     <select id="rec-soreness" onchange="saveRecovery()">
                         <option value="">Soreness</option>
                         <option value="low">Low</option>
                         <option value="med">Moderate</option>
                         <option value="high">High</option>
-                    </select>
-                    <select id="rec-joints" onchange="saveRecovery()">
-                        <option value="">Joints</option>
-                        <option value="good">Good</option>
-                        <option value="stiff">Stiff</option>
                     </select>
                     <select id="rec-sleep" onchange="saveRecovery()">
                         <option value="">Sleep</option>
@@ -443,9 +488,7 @@
 
         <div class="card">
             <div class="stat-label">12-Week Volume & Completion Matrix</div>
-            <div class="matrix-container" id="matrix-container">
-                <!-- Programmatically filled -->
-            </div>
+            <div class="matrix-container" id="matrix-container"></div>
         </div>
     </div>
 
@@ -510,11 +553,20 @@
 <script>
     let programData = { phases: [] };
 
+    /* Live Date & Time Ticker */
+    function updateLiveTicker() {
+        const now = new Date();
+        const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', second: '2-digit' };
+        document.getElementById('live-ticker').textContent = now.toLocaleDateString('en-US', options);
+    }
+    setInterval(updateLiveTicker, 1000);
+    updateLiveTicker();
+
     function switchTab(tabId) {
         document.querySelectorAll('.nav-tab').forEach(btn => btn.classList.remove('active'));
         document.querySelectorAll('.tab-content').forEach(view => view.classList.remove('active'));
         
-        event.target.classList.add('active');
+        document.getElementById('tab-' + tabId + '-btn').classList.add('active');
         document.getElementById(tabId).classList.add('active');
     }
 
@@ -525,7 +577,6 @@
             programData = await response.json();
             
             populatePhases();
-            renderMatrix();
             loadHydration();
             loadRecovery();
             calculateCompletionStats();
@@ -592,8 +643,15 @@
         const weekIndex = document.getElementById('week-select').value;
         const dayIndex = document.getElementById('day-select').value;
 
-        const currentDay = programData.phases[phaseIndex]?.weeks[weekIndex]?.days[dayIndex];
-        renderExercises(currentDay);
+        const pObj = programData.phases[phaseIndex];
+        const wObj = pObj?.weeks[weekIndex];
+        const dObj = wObj?.days[dayIndex];
+
+        if (pObj && wObj && dObj) {
+            document.getElementById('resume-lift-label').textContent = `${pObj.name.split(':')[0]} • ${wObj.name} • ${dObj.name.split(':')[0]}`;
+        }
+
+        renderExercises(dObj);
     }
 
     function renderExercises(dayObj) {
@@ -606,26 +664,37 @@
         }
 
         dayObj.exercises.forEach(ex => {
-            const isChecked = localStorage.getItem(ex.id) === 'true';
+            const numSets = parseInt(ex.sets) || 1;
+            let setsHtml = '';
+
+            for (let i = 1; i <= numSets; i++) {
+                const setKey = `${ex.id}_set_${i}`;
+                const isChecked = localStorage.getItem(setKey) === 'true';
+                
+                setsHtml += `
+                    <div class="set-box ${isChecked ? 'checked' : ''}" onclick="toggleSetCheck(this, '${setKey}')">
+                        <div class="set-checkbox"></div>
+                        <span>Set ${i}</span>
+                    </div>
+                `;
+            }
 
             const card = document.createElement('div');
             card.className = 'exercise-card';
             card.innerHTML = `
-                <div class="exercise-header">
-                    <div>
-                        ${ex.series ? `<span class="series-badge">${ex.series}</span>` : ''}
-                        <div class="exercise-title">${ex.title}</div>
-                    </div>
-                    <div class="custom-checkbox ${isChecked ? 'checked' : ''}" onclick="toggleCheck(this, '${ex.id}')"></div>
-                </div>
+                ${ex.series ? `<span class="series-badge">${ex.series}</span>` : ''}
+                <div class="exercise-title">${ex.title}</div>
                 <div class="exercise-details">${ex.sets} Sets × ${ex.reps} Reps • Rest: ${ex.rest}</div>
                 ${ex.notes ? `<div class="exercise-notes">${ex.notes}</div>` : ''}
+                <div class="sets-row">
+                    ${setsHtml}
+                </div>
             `;
             listContainer.appendChild(card);
         });
     }
 
-    function toggleCheck(element, key) {
+    function toggleSetCheck(element, key) {
         element.classList.toggle('checked');
         const isChecked = element.classList.contains('checked');
         localStorage.setItem(key, isChecked);
@@ -640,7 +709,10 @@
 
         if (currentDay && currentDay.exercises) {
             currentDay.exercises.forEach(ex => {
-                localStorage.removeItem(ex.id);
+                const numSets = parseInt(ex.sets) || 1;
+                for (let i = 1; i <= numSets; i++) {
+                    localStorage.removeItem(`${ex.id}_set_${i}`);
+                }
             });
             renderExercises(currentDay);
             calculateCompletionStats();
@@ -665,49 +737,57 @@
     }
 
     function saveRecovery() {
+        localStorage.setItem('vb_mood', document.getElementById('rec-mood').value);
         localStorage.setItem('vb_soreness', document.getElementById('rec-soreness').value);
-        localStorage.setItem('vb_joints', document.getElementById('rec-joints').value);
         localStorage.setItem('vb_sleep', document.getElementById('rec-sleep').value);
     }
 
     function loadRecovery() {
+        document.getElementById('rec-mood').value = localStorage.getItem('vb_mood') || '';
         document.getElementById('rec-soreness').value = localStorage.getItem('vb_soreness') || '';
-        document.getElementById('rec-joints').value = localStorage.getItem('vb_joints') || '';
         document.getElementById('rec-sleep').value = localStorage.getItem('vb_sleep') || '';
     }
 
     function calculateCompletionStats() {
-        let totalExercises = 0;
-        let completedExercises = 0;
+        let totalSets = 0;
+        let completedSets = 0;
 
         programData.phases.forEach(phase => {
             phase.weeks.forEach(week => {
                 week.days.forEach(day => {
                     day.exercises.forEach(ex => {
-                        totalExercises++;
-                        if (localStorage.getItem(ex.id) === 'true') {
-                            completedExercises++;
+                        const numSets = parseInt(ex.sets) || 1;
+                        totalSets += numSets;
+                        for (let i = 1; i <= numSets; i++) {
+                            if (localStorage.getItem(`${ex.id}_set_${i}`) === 'true') {
+                                completedSets++;
+                            }
                         }
                     });
                 });
             });
         });
 
-        const pct = totalExercises > 0 ? Math.round((completedExercises / totalExercises) * 100) : 0;
-        document.getElementById('completion-stat').textContent = `${completedExercises} / ${totalExercises} Exercises`;
+        const pct = totalSets > 0 ? Math.round((completedSets / totalSets) * 100) : 0;
+        document.getElementById('completion-stat').textContent = `${completedSets} / ${totalSets} Sets`;
         document.getElementById('completion-pct').textContent = `${pct}% Completed`;
+
+        renderMatrix(pct);
     }
 
-    function renderMatrix() {
+    function renderMatrix(overallPct = 0) {
         const container = document.getElementById('matrix-container');
         container.innerHTML = '';
 
         for (let i = 1; i <= 12; i++) {
+            // Fills bars based on completion progress
+            const fillPct = i === 1 ? Math.min(100, overallPct * 3) : 0;
+            
             const col = document.createElement('div');
             col.className = 'matrix-col';
             col.innerHTML = `
-                <div class="matrix-bar ${i === 1 ? 'active' : ''}">
-                    <div class="matrix-fill" style="height: ${i === 1 ? '40%' : '0%'};"></div>
+                <div class="matrix-bar ${fillPct > 0 ? 'active' : ''}">
+                    <div class="matrix-fill" style="height: ${fillPct}%;"></div>
                 </div>
                 <div class="matrix-lbl">W${i}</div>
             `;
