@@ -1,0 +1,115 @@
+{
+  "phases": [
+    {
+      "id": "phase1",
+      "name": "Phase 1: Foundation & Mechanics",
+      "weeks": [
+        {
+          "id": "p1_w1",
+          "name": "Week 1",
+          "days": [
+            {
+              "id": "p1_w1_d1",
+              "name": "Day 1: Lower Body Power & Landing",
+              "exercises": [
+                {
+                  "id": "p1_w1_d1_ex1",
+                  "series": "A1",
+                  "title": "Bodyweight Goblet Squats",
+                  "sets": "3",
+                  "reps": "10",
+                  "rest": "60s",
+                  "notes": "Focus on knee tracking & soft midfoot landing"
+                },
+                {
+                  "id": "p1_w1_d1_ex2",
+                  "series": "A2",
+                  "title": "Dumbbell RDLs (or PVC Pipe)",
+                  "sets": "3",
+                  "reps": "10",
+                  "rest": "60s",
+                  "notes": "Hinge hips back, neutral spine"
+                },
+                {
+                  "id": "p1_w1_d1_ex3",
+                  "series": "B1",
+                  "title": "Step-Ups onto Bench",
+                  "sets": "3",
+                  "reps": "8 / leg",
+                  "rest": "45s",
+                  "notes": "Explosive drive off top leg"
+                }
+              ]
+            },
+            {
+              "id": "p1_w1_d2",
+              "name": "Day 2: Agility & Speed Mechanics",
+              "exercises": [
+                {
+                  "id": "p1_w1_d2_ex1",
+                  "series": "A1",
+                  "title": "Low-Base Lateral Shuffles",
+                  "sets": "4",
+                  "reps": "10 Yds",
+                  "rest": "45s",
+                  "notes": "Stay low, do not cross feet"
+                },
+                {
+                  "id": "p1_w1_d2_ex2",
+                  "series": "A2",
+                  "title": "5-10-5 Pro Agility Shuttle",
+                  "sets": "3",
+                  "reps": "1 Round",
+                  "rest": "60s",
+                  "notes": "Fast hip turn, drop center of gravity"
+                },
+                {
+                  "id": "p1_w1_d2_ex3",
+                  "series": "B1",
+                  "title": "4-Cone Reaction Box",
+                  "sets": "4",
+                  "reps": "15 Sec",
+                  "rest": "45s",
+                  "notes": "Keep chest & eyes up facing front"
+                }
+              ]
+            },
+            {
+              "id": "p1_w1_d3",
+              "name": "Day 3: Shoulder Care & Core Stability",
+              "exercises": [
+                {
+                  "id": "p1_w1_d3_ex1",
+                  "series": "A1",
+                  "title": "Band Y-T-W Shoulder Raises",
+                  "sets": "2",
+                  "reps": "10 Each",
+                  "rest": "45s",
+                  "notes": "Scapular stability & rotator cuff defense"
+                },
+                {
+                  "id": "p1_w1_d3_ex2",
+                  "series": "A2",
+                  "title": "Pallof Press (Anti-Rotation)",
+                  "sets": "3",
+                  "reps": "10 / side",
+                  "rest": "45s",
+                  "notes": "Brace core, prevent torso twisting"
+                },
+                {
+                  "id": "p1_w1_d3_ex3",
+                  "series": "B1",
+                  "title": "Forearm Plank Hold",
+                  "sets": "3",
+                  "reps": "45 Sec",
+                  "rest": "30s",
+                  "notes": "Squeeze glutes & hold flat bridge"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
