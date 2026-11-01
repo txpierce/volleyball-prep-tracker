@@ -309,4 +309,29 @@
         });
     }
 
-    function toggle
+    function toggleCheck(element, key) {
+        element.classList.toggle('checked');
+        const isChecked = element.classList.contains('checked');
+        localStorage.setItem(key, isChecked);
+    }
+
+    function resetCurrentDay() {
+        const phaseIndex = document.getElementById('phase-select').value;
+        const weekIndex = document.getElementById('week-select').value;
+        const dayIndex = document.getElementById('day-select').value;
+        const currentDay = programData.phases[phaseIndex]?.weeks[weekIndex]?.days[dayIndex];
+
+        if (currentDay && currentDay.exercises) {
+            currentDay.exercises.forEach(ex => {
+                localStorage.removeItem(ex.id);
+            });
+            renderExercises(currentDay);
+        }
+    }
+
+    // App Startup
+    initApp();
+</script>
+
+</body>
+</html>
