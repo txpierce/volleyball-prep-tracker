@@ -25,7 +25,7 @@
             background-color: var(--bg-dark);
             color: var(--text-main);
             margin: 0;
-            padding: 16px 16px 100px 16px; /* Extra bottom padding for floating timer */
+            padding: 16px 16px 100px 16px;
             display: flex;
             justify-content: center;
         }
@@ -73,7 +73,7 @@
             display: block;
         }
 
-        /* Cards & Banner */
+        /* Cards & Banners */
         .card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
@@ -123,10 +123,6 @@
             transition: transform 0.1s;
         }
 
-        .btn-resume:active {
-            transform: scale(0.97);
-        }
-
         .hero-title {
             font-size: 1.4rem;
             font-weight: 800;
@@ -149,6 +145,13 @@
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
             gap: 12px;
             margin-bottom: 16px;
         }
@@ -397,6 +400,94 @@
             cursor: pointer;
         }
 
+        /* NUTRITION SPECIFIC STYLES */
+        .pillar-card {
+            background: #0f172a;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 14px;
+        }
+
+        .pillar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .pillar-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--accent-yellow);
+        }
+
+        .pillar-target {
+            font-size: 0.75rem;
+            background: #1e293b;
+            color: var(--accent-blue);
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .pillar-purpose {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .habit-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #0f172a;
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        .habit-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .habit-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .habit-desc {
+            font-size: 0.775rem;
+            color: var(--text-muted);
+        }
+
+        .habit-checkbox {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            border: 2px solid var(--card-border);
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .habit-item.checked .habit-checkbox {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+        }
+
+        .habit-item.checked .habit-checkbox::after {
+            content: "✓";
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
         /* FLOATING REST TIMER BAR */
         .floating-timer-bar {
             position: fixed;
@@ -582,31 +673,139 @@
     <!-- NUTRITION TAB -->
     <div id="nutrition" class="tab-content">
         <div class="card">
-            <div class="stat-label">Youth Volleyball Nutrition Guide</div>
-            <h2 style="margin: 6px 0 12px 0;">Fueling for Growth & Explosive Power</h2>
-            <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.5;">
-                At 5'0" and 92 lbs, consistent quality fueling supports natural growth spurts and builds lateral speed for back-row defense. Focus on wholesome meals rather than strict calorie restriction.
+            <div class="stat-label">YOUTH VOLLEYBALL NUTRITION PROTOCOL</div>
+            <h2 style="margin: 6px 0 8px 0;">Fueling for Growth & Explosive Power</h2>
+            <p style="color:var(--text-muted); font-size:0.875rem; line-height:1.5; margin:0;">
+                At 5'0" and 92 lbs, consistent quality fueling supports natural growth spurts and builds lateral speed for back-row defense. Focus on wholesome meal timing rather than strict calorie restriction.
             </p>
         </div>
 
-        <div class="grid-2">
-            <div class="card">
-                <div class="stat-label" style="color:var(--accent-yellow);">Main Meal Components</div>
-                <ul style="padding-left:18px; color:var(--text-muted); font-size:0.875rem; line-height:1.6;">
-                    <li><strong style="color:#fff;">Protein:</strong> Chicken, turkey, fish, eggs, Greek yogurt, or lean beef.</li>
-                    <li><strong style="color:#fff;">Complex Carbs:</strong> Rice, sweet potatoes, oats, whole wheat bread.</li>
-                    <li><strong style="color:#fff;">Healthy Fats:</strong> Avocado, nuts, seeds, olive oil.</li>
-                </ul>
-            </div>
-            <div class="card">
-                <div class="stat-label" style="color:var(--accent-blue);">Hydration & Electrolytes</div>
-                <ul style="padding-left:18px; color:var(--text-muted); font-size:0.875rem; line-height:1.6;">
-                    <li>Drink water steadily throughout the day.</li>
-                    <li>Aim for at least 16 oz before court practice.</li>
-                    <li>Rehydrate post-practice with water + electrolyte minerals.</li>
-                </ul>
+        <!-- 4 Nutrition Pillars Grid -->
+        <div class="card">
+            <div class="stat-label" style="margin-bottom:12px;">Core Nutrition Pillars</div>
+            <div class="grid-4">
+                <div class="pillar-card">
+                    <div class="pillar-header">
+                        <span class="pillar-title">Energy & Carbs</span>
+                        <span class="pillar-target">~55%</span>
+                    </div>
+                    <div style="font-weight:700; font-size:0.85rem; color:#fff; margin-bottom:4px;">220–250g Daily</div>
+                    <div class="pillar-purpose">Primary fuel source for quick-burst reactions, court transitions, and alertness.</div>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-header">
+                        <span class="pillar-title">Protein</span>
+                        <span class="pillar-target">~20%</span>
+                    </div>
+                    <div style="font-weight:700; font-size:0.85rem; color:#fff; margin-bottom:4px;">65–85g Daily</div>
+                    <div class="pillar-purpose">Muscle repair, structural bone building, and recovery after jumping & diving.</div>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-header">
+                        <span class="pillar-title">Healthy Fats</span>
+                        <span class="pillar-target">~25%</span>
+                    </div>
+                    <div style="font-weight:700; font-size:0.85rem; color:#fff; margin-bottom:4px;">45–55g Daily</div>
+                    <div class="pillar-purpose">Hormone balance, joint protection, and sustained energy on long tournament days.</div>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-header">
+                        <span class="pillar-title">Hydration</span>
+                        <span class="pillar-target">64–80 oz</span>
+                    </div>
+                    <div style="font-weight:700; font-size:0.85rem; color:#fff; margin-bottom:4px;">Water + Minerals</div>
+                    <div class="pillar-purpose">Sustains muscle contraction velocity and prevents late-match court fatigue.</div>
+                </div>
             </div>
         </div>
+
+        <!-- Daily Meal Timing & Habit Checklists -->
+        <div class="grid-2">
+            <div class="card">
+                <div class="stat-label" style="color:var(--accent-yellow); margin-bottom:10px;">Daily Fueling & Meal Tracker</div>
+
+                <div class="habit-item" id="habit-bfast" onclick="toggleHabit('habit-bfast')">
+                    <div class="habit-info">
+                        <span class="habit-title">Breakfast (7:00 AM)</span>
+                        <span class="habit-desc">Oatmeal / Eggs + Whole Wheat Toast + Fruit</span>
+                    </div>
+                    <div class="habit-checkbox"></div>
+                </div>
+
+                <div class="habit-item" id="habit-lunch" onclick="toggleHabit('habit-lunch')">
+                    <div class="habit-info">
+                        <span class="habit-title">Lunch (12:00 PM)</span>
+                        <span class="habit-desc">Lean Chicken/Turkey Wrap + Sweet Potato + Water</span>
+                    </div>
+                    <div class="habit-checkbox"></div>
+                </div>
+
+                <div class="habit-item" id="habit-presnack" onclick="toggleHabit('habit-presnack')">
+                    <div class="habit-info">
+                        <span class="habit-title">Pre-Practice Snack (4:00 PM)</span>
+                        <span class="habit-desc">30-60 min before court: Banana or Honey Toast</span>
+                    </div>
+                    <div class="habit-checkbox"></div>
+                </div>
+
+                <div class="habit-item" id="habit-postsnack" onclick="toggleHabit('habit-postsnack')">
+                    <div class="habit-info">
+                        <span class="habit-title">Post-Workout Recovery (6:30 PM)</span>
+                        <span class="habit-desc">Within 45 min: Chocolate Milk or Greek Yogurt</span>
+                    </div>
+                    <div class="habit-checkbox"></div>
+                </div>
+
+                <div class="habit-item" id="habit-dinner" onclick="toggleHabit('habit-dinner')">
+                    <div class="habit-info">
+                        <span class="habit-title">Dinner (7:30 PM)</span>
+                        <span class="habit-desc">Salmon/Steak + Brown Rice + Avocado & Greens</span>
+                    </div>
+                    <div class="habit-checkbox"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="stat-label" style="color:var(--accent-blue); margin-bottom:10px;">Daily Hydration Log (64-80 oz)</div>
+
+                <div class="habit-item" id="hydro-1" onclick="toggleHabit('hydro-1')">
+                    <div class="habit-info">
+                        <span class="habit-title">Morning Bottle (16–20 oz)</span>
+                        <span class="habit-desc">Drink immediately upon waking</span>
+                    </div>
+                    <div class="habit-checkbox"></div>
+                </div>
+
+                <div class="habit-item" id="hydro-2" onclick="toggleHabit('hydro-2')">
+                    <div class="habit-info">
+                        <span class="habit-title">School & Lunch Bottle (16–20 oz)</span>
+                        <span class="habit-desc">Sip steadily throughout the morning</span>
+                    </div>
+                    <div class="habit-checkbox"></div>
+                </div>
+
+                <div class="habit-item" id="hydro-3" onclick="toggleHabit('hydro-3')">
+                    <div class="habit-info">
+                        <span class="habit-title">Pre-Practice Bottle (16–20 oz)</span>
+                        <span class="habit-desc">Finish 30-45 minutes before warmups</span>
+                    </div>
+                    <div class="habit-checkbox"></div>
+                </div>
+
+                <div class="habit-item" id="hydro-4" onclick="toggleHabit('hydro-4')">
+                    <div class="habit-info">
+                        <span class="habit-title">Post-Court Electrolytes (16–20 oz)</span>
+                        <span class="habit-desc">Rehydrate post-practice with water + minerals</span>
+                    </div>
+                    <div class="habit-checkbox"></div>
+                </div>
+            </div>
+        </div>
+
+        <button class="reset-btn" onclick="resetNutritionHabits()">Reset Today's Nutrition Habits</button>
     </div>
 
 </div>
@@ -649,7 +848,7 @@
             if (audioCtx.state === 'suspended') {
                 audioCtx.resume();
             }
-            const freqs = [523.25, 659.25, 783.99]; // C5, E5, G5 chime chord
+            const freqs = [523.25, 659.25, 783.99];
             freqs.forEach((freq, idx) => {
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
@@ -670,7 +869,6 @@
     function startTimer(seconds) {
         stopTimer();
         
-        // Initialize Web Audio Context on user tap
         if (!audioCtx) {
             audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         }
@@ -723,6 +921,7 @@
             populatePhases();
             loadHydration();
             loadRecovery();
+            loadNutritionHabits();
             calculateCompletionStats();
         } catch (error) {
             console.error('Error:', error);
@@ -890,6 +1089,36 @@
         document.getElementById('rec-mood').value = localStorage.getItem('vb_mood') || '';
         document.getElementById('rec-soreness').value = localStorage.getItem('vb_soreness') || '';
         document.getElementById('rec-sleep').value = localStorage.getItem('vb_sleep') || '';
+    }
+
+    /* Nutrition Habit Helpers */
+    function toggleHabit(habitId) {
+        const el = document.getElementById(habitId);
+        if (!el) return;
+        el.classList.toggle('checked');
+        const isChecked = el.classList.contains('checked');
+        localStorage.setItem('nutr_' + habitId, isChecked);
+    }
+
+    function loadNutritionHabits() {
+        const habitIds = ['habit-bfast', 'habit-lunch', 'habit-presnack', 'habit-postsnack', 'habit-dinner', 'hydro-1', 'hydro-2', 'hydro-3', 'hydro-4'];
+        habitIds.forEach(id => {
+            const el = document.getElementById(id);
+            if (el && localStorage.getItem('nutr_' + id) === 'true') {
+                el.classList.add('checked');
+            }
+        });
+    }
+
+    function resetNutritionHabits() {
+        if (confirm("Reset today's nutrition checkmarks?")) {
+            const habitIds = ['habit-bfast', 'habit-lunch', 'habit-presnack', 'habit-postsnack', 'habit-dinner', 'hydro-1', 'hydro-2', 'hydro-3', 'hydro-4'];
+            habitIds.forEach(id => {
+                localStorage.removeItem('nutr_' + id);
+                const el = document.getElementById(id);
+                if (el) el.classList.remove('checked');
+            });
+        }
     }
 
     function calculateCompletionStats() {
