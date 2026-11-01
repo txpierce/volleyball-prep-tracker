@@ -595,9 +595,9 @@
                 <div class="stat-sub">Movement & Mechanics</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">Daily Macro Target</div>
-                <div class="stat-value" style="font-size: 1.1rem; padding-top: 6px;">Growth & Recovery</div>
-                <div class="stat-sub">3 Balanced Meals + 2 Snacks</div>
+                <div class="stat-label">Growth & Recovery Fueling</div>
+                <div class="stat-value" id="dash-nutrition-val" style="font-size: 1.3rem; padding-top: 4px;">0 / 9 Habits</div>
+                <div class="stat-sub" id="dash-nutrition-pct">0% Completed Today</div>
             </div>
         </div>
 
@@ -829,6 +829,47 @@
     let programData = { phases: [] };
     let timerInterval = null;
     let audioCtx = null;
+    const allHabitIds = ['habit-bfast', 'habit-lunch', 'habit-presnack', 'habit-postsnack', 'habit-dinner', 'hydro-1', 'hydro-2', 'hydro-3', 'hydro-4'];
+
+    /* Midnight Auto-Reset Check */
+    function checkMidnightReset() {
+        const today = new Date().toDateString();
+        const lastDate = localStorage.getItem('vb_last_active_date');
+        
+        if (lastDate && lastDate !== today) {
+            // New day detected - Reset daily trackers
+            allHabitIds.forEach(id => localStorage.removeItem('nutr_' + id));
+            localStorage.removeItem('vb_hydration');
+            localStorage.removeItem('vb_mood');
+            localStorage.removeItem('vb_soreness');
+            localStorage.removeItem('vb_sleep');
+
+            // Clear set checkmarks
+            if (programData.phases) {
+                programData.phases.forEach(phase => {
+                    phase.weeks.forEach(week => {
+                        week.days.forEach(day => {
+                            day.exercises.forEach(ex => {
+                                const numSets = parseInt(ex.sets) || 1;
+                                for (let i = 1; i <= numSets; i++) {
+                                    localStorage.removeItem(`${ex.id}_set_${i}`);
+                                }
+                            });
+                        });
+                    });
+                });
+            }
+
+            // Refresh UI elements
+            loadNutritionHabits();
+            loadHydration();
+            loadRecovery();
+            onDayChange();
+            calculateCompletionStats();
+        }
+        localStorage.setItem('vb_last_active_date', today);
+    }
+    window.addEventListener('focus', checkMidnightReset);
 
     /* Live Date & Time Ticker */
     function updateLiveTicker() {
@@ -918,6 +959,7 @@
             if (!response.ok) throw new Error('Failed to load JSON');
             programData = await response.json();
             
+            checkMidnightReset();
             populatePhases();
             loadHydration();
             loadRecovery();
@@ -1091,33 +1133,44 @@
         document.getElementById('rec-sleep').value = localStorage.getItem('vb_sleep') || '';
     }
 
-    /* Nutrition Habit Helpers */
+    /* Nutrition Habit Helpers & Dashboard Sync */
     function toggleHabit(habitId) {
         const el = document.getElementById(habitId);
         if (!el) return;
         el.classList.toggle('checked');
         const isChecked = el.classList.contains('checked');
         localStorage.setItem('nutr_' + habitId, isChecked);
+        updateDashboardNutritionStat();
     }
 
     function loadNutritionHabits() {
-        const habitIds = ['habit-bfast', 'habit-lunch', 'habit-presnack', 'habit-postsnack', 'habit-dinner', 'hydro-1', 'hydro-2', 'hydro-3', 'hydro-4'];
-        habitIds.forEach(id => {
+        allHabitIds.forEach(id => {
             const el = document.getElementById(id);
             if (el && localStorage.getItem('nutr_' + id) === 'true') {
                 el.classList.add('checked');
             }
         });
+        updateDashboardNutritionStat();
+    }
+
+    function updateDashboardNutritionStat() {
+        let count = 0;
+        allHabitIds.forEach(id => {
+            if (localStorage.getItem('nutr_' + id) === 'true') count++;
+        });
+        const pct = Math.round((count / allHabitIds.length) * 100);
+        document.getElementById('dash-nutrition-val').textContent = `${count} / ${allHabitIds.length} Habits`;
+        document.getElementById('dash-nutrition-pct').textContent = `${pct}% Completed Today`;
     }
 
     function resetNutritionHabits() {
         if (confirm("Reset today's nutrition checkmarks?")) {
-            const habitIds = ['habit-bfast', 'habit-lunch', 'habit-presnack', 'habit-postsnack', 'habit-dinner', 'hydro-1', 'hydro-2', 'hydro-3', 'hydro-4'];
-            habitIds.forEach(id => {
+            allHabitIds.forEach(id => {
                 localStorage.removeItem('nutr_' + id);
                 const el = document.getElementById(id);
                 if (el) el.classList.remove('checked');
             });
+            updateDashboardNutritionStat();
         }
     }
 
