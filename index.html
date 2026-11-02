@@ -12,6 +12,7 @@
             --accent-yellow: #f59e0b;
             --accent-blue: #0284c7;
             --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
             --text-main: #f9fafb;
             --text-muted: #9ca3af;
         }
@@ -38,25 +39,27 @@
         /* Top Navigation */
         .nav-bar {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             background: #0f172a;
-            padding: 8px;
+            padding: 6px;
             border-radius: 40px;
             border: 1px solid var(--card-border);
             margin-bottom: 20px;
+            overflow-x: auto;
         }
 
         .nav-tab {
             flex: 1;
-            padding: 10px 16px;
+            padding: 10px 12px;
             border: none;
             border-radius: 20px;
             background: transparent;
             color: var(--text-muted);
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             cursor: pointer;
             text-align: center;
+            white-space: nowrap;
             transition: all 0.2s;
         }
 
@@ -117,10 +120,6 @@
             font-weight: 800;
             font-size: 0.85rem;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: transform 0.1s;
         }
 
         .btn-export {
@@ -138,11 +137,6 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            transition: background 0.2s;
-        }
-
-        .btn-export:hover {
-            background: #0369a1;
         }
 
         .hero-title {
@@ -173,7 +167,7 @@
 
         .grid-4 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 12px;
             margin-bottom: 16px;
         }
@@ -205,6 +199,95 @@
             font-size: 0.775rem;
             color: var(--text-muted);
             margin-top: 4px;
+        }
+
+        /* Badges Grid */
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .badge-card {
+            background: #0f172a;
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            opacity: 0.4;
+            filter: grayscale(100%);
+            transition: all 0.3s;
+        }
+
+        .badge-card.unlocked {
+            opacity: 1;
+            filter: grayscale(0%);
+            border-color: var(--accent-yellow);
+            background: #1e1b4b;
+        }
+
+        .badge-icon {
+            font-size: 1.6rem;
+            margin-bottom: 4px;
+        }
+
+        .badge-title {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .badge-desc {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Stat Counter Buttons */
+        .pass-btn-group {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .pass-btn {
+            flex: 1;
+            padding: 12px 0;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+            background: #0f172a;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .pass-btn:hover {
+            background: var(--accent-blue);
+        }
+
+        .counter-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #0f172a;
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin-top: 10px;
+        }
+
+        .btn-counter {
+            background: var(--accent-yellow);
+            color: #000;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 1.2rem;
+            cursor: pointer;
         }
 
         /* Hydration Toggle */
@@ -422,42 +505,7 @@
             cursor: pointer;
         }
 
-        /* NUTRITION SPECIFIC STYLES */
-        .pillar-card {
-            background: #0f172a;
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 14px;
-        }
-
-        .pillar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 6px;
-        }
-
-        .pillar-title {
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: var(--accent-yellow);
-        }
-
-        .pillar-target {
-            font-size: 0.75rem;
-            background: #1e293b;
-            color: var(--accent-blue);
-            font-weight: 800;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-
-        .pillar-purpose {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-
+        /* Habit & Checklist Items */
         .habit-item {
             display: flex;
             align-items: center;
@@ -557,10 +605,9 @@
             font-weight: 700;
             font-size: 0.8rem;
             cursor: pointer;
-            transition: all 0.2s;
         }
 
-        .timer-btn:hover, .timer-btn:active {
+        .timer-btn:hover {
             background: var(--accent-blue);
             color: #fff;
         }
@@ -579,8 +626,10 @@
     <!-- Top Navigation -->
     <div class="nav-bar">
         <button id="tab-dashboard-btn" class="nav-tab active" onclick="switchTab('dashboard')">Dashboard</button>
-        <button id="tab-workout-btn" class="nav-tab" onclick="switchTab('workout')">Workout Logs</button>
+        <button id="tab-workout-btn" class="nav-tab" onclick="switchTab('workout')">Workouts</button>
+        <button id="tab-stats-btn" class="nav-tab" onclick="switchTab('stats')">Court Stats</button>
         <button id="tab-nutrition-btn" class="nav-tab" onclick="switchTab('nutrition')">Nutrition</button>
+        <button id="tab-roadmap-btn" class="nav-tab" onclick="switchTab('roadmap')">D1 Roadmap</button>
     </div>
 
     <!-- DASHBOARD TAB -->
@@ -608,19 +657,46 @@
 
         <div class="grid-3">
             <div class="stat-card">
+                <div class="stat-label">Active Streak</div>
+                <div class="stat-value" id="streak-stat">🔥 1 Day</div>
+                <div class="stat-sub">Keep Fueling & Training</div>
+            </div>
+            <div class="stat-card">
                 <div class="stat-label">Total Set Progress</div>
                 <div class="stat-value" id="completion-stat">0 / 0 Sets</div>
                 <div class="stat-sub" id="completion-pct">0% Completed</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">Active Focus</div>
-                <div class="stat-value" style="font-size: 1.1rem; padding-top: 6px;">Phase 1: Foundation</div>
-                <div class="stat-sub">Movement & Mechanics</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">Growth & Recovery Fueling</div>
+                <div class="stat-label">Daily Fueling</div>
                 <div class="stat-value" id="dash-nutrition-val" style="font-size: 1.3rem; padding-top: 4px;">0 / 9 Habits</div>
                 <div class="stat-sub" id="dash-nutrition-pct">0% Completed Today</div>
+            </div>
+        </div>
+
+        <!-- Badges & Achievements -->
+        <div class="card">
+            <div class="stat-label" style="margin-bottom:8px;">Earned Achievements & Badges</div>
+            <div class="badge-grid">
+                <div class="badge-card" id="badge-streak">
+                    <div class="badge-icon">🔥</div>
+                    <div class="badge-title">On Fire</div>
+                    <div class="badge-desc">3+ Day Streak</div>
+                </div>
+                <div class="badge-card" id="badge-hydro">
+                    <div class="badge-icon">💧</div>
+                    <div class="badge-title">Hydration Hero</div>
+                    <div class="badge-desc">100% Water Goal</div>
+                </div>
+                <div class="badge-card" id="badge-landing">
+                    <div class="badge-icon">🦵</div>
+                    <div class="badge-title">Landing Master</div>
+                    <div class="badge-desc">Phase 1 Day 1 Check</div>
+                </div>
+                <div class="badge-card" id="badge-passer">
+                    <div class="badge-icon">🏐</div>
+                    <div class="badge-title">Libero Engine</div>
+                    <div class="badge-desc">Log 10+ Passes</div>
+                </div>
             </div>
         </div>
 
@@ -652,10 +728,11 @@
                         <option value="high">High</option>
                     </select>
                     <select id="rec-sleep" onchange="saveRecovery()">
-                        <option value="">Sleep</option>
-                        <option value="8h">8+ Hours</option>
-                        <option value="7h">7 Hours</option>
-                        <option value="6h">< 6 Hours</option>
+                        <option value="">Sleep Goal (8-10h)</option>
+                        <option value="10h">10 Hours 🌟</option>
+                        <option value="9h">9 Hours ✅</option>
+                        <option value="8h">8 Hours 👍</option>
+                        <option value="7h">< 8 Hours ⚠️</option>
                     </select>
                 </div>
             </div>
@@ -693,59 +770,71 @@
         <button class="reset-btn" onclick="resetCurrentDay()">Reset Today's Checkmarks</button>
     </div>
 
+    <!-- COURT STATS TAB (LIBERO / DS FOCUS) -->
+    <div id="stats" class="tab-content">
+        <div class="card">
+            <div class="stat-label">LIBERO & BACK-ROW DEFENSE LOG</div>
+            <h2 style="margin: 6px 0 8px 0;">Serve Receive & Dig Tracker</h2>
+            <p style="color:var(--text-muted); font-size:0.85rem; margin:0;">
+                Log your passing quality ratings and defensive digs during club practices and scrimmages.
+            </p>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="stat-label">Pass Quality Rating Logger</div>
+                <div class="pass-btn-group">
+                    <button class="pass-btn" style="background:#065f46;" onclick="logPass(3)">3 (Perfect Target)</button>
+                    <button class="pass-btn" style="background:#1e3a8a;" onclick="logPass(2)">2 (Playable)</button>
+                    <button class="pass-btn" style="background:#854d0e;" onclick="logPass(1)">1 (Out of System)</button>
+                    <button class="pass-btn" style="background:#991b1b;" onclick="logPass(0)">0 (Ace)</button>
+                </div>
+                <div style="margin-top:14px; text-align:center;">
+                    <div class="stat-label">Passing Rating Average</div>
+                    <div class="stat-value" id="pass-avg-display">0.00</div>
+                    <div class="stat-sub" id="pass-count-display">0 Total Passes Logged</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="stat-label">Defensive Digs & Sprawls Counter</div>
+                <div class="counter-box">
+                    <div>
+                        <div style="font-weight:800; font-size:1.1rem;">Successful Digs</div>
+                        <div style="font-size:0.75rem; color:var(--text-muted);">Hard-driven attacks & tips recovered</div>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:12px;">
+                        <span id="dig-count-display" style="font-size:1.4rem; font-weight:800; color:var(--accent-yellow);">0</span>
+                        <button class="btn-counter" onclick="adjustCounter('dig', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="counter-box">
+                    <div>
+                        <div style="font-weight:800; font-size:1.1rem;">Diving / Sprawl Recoveries</div>
+                        <div style="font-size:0.75rem; color:var(--text-muted);">Emergency chest-glides & pancakes</div>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:12px;">
+                        <span id="sprawl-count-display" style="font-size:1.4rem; font-weight:800; color:var(--accent-blue);">0</span>
+                        <button class="btn-counter" onclick="adjustCounter('sprawl', 1)">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="reset-btn" onclick="resetStatsLog()">Reset Practice Stat Counters</button>
+    </div>
+
     <!-- NUTRITION TAB -->
     <div id="nutrition" class="tab-content">
         <div class="card">
             <div class="stat-label">YOUTH VOLLEYBALL NUTRITION PROTOCOL</div>
             <h2 style="margin: 6px 0 8px 0;">Fueling for Growth & Explosive Power</h2>
             <p style="color:var(--text-muted); font-size:0.875rem; line-height:1.5; margin:0;">
-                At 5'0" and 92 lbs, consistent quality fueling supports natural growth spurts and builds lateral speed for back-row defense. Focus on wholesome meal timing rather than strict calorie restriction.
+                At 5'0" and 92 lbs, consistent quality fueling supports natural growth spurts and builds lateral speed for back-row defense. Focus on wholesome meal timing.
             </p>
         </div>
 
-        <!-- 4 Nutrition Pillars Grid -->
-        <div class="card">
-            <div class="stat-label" style="margin-bottom:12px;">Core Nutrition Pillars</div>
-            <div class="grid-4">
-                <div class="pillar-card">
-                    <div class="pillar-header">
-                        <span class="pillar-title">Energy & Carbs</span>
-                        <span class="pillar-target">~55%</span>
-                    </div>
-                    <div style="font-weight:700; font-size:0.85rem; color:#fff; margin-bottom:4px;">220–250g Daily</div>
-                    <div class="pillar-purpose">Primary fuel source for quick-burst reactions, court transitions, and alertness.</div>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="pillar-header">
-                        <span class="pillar-title">Protein</span>
-                        <span class="pillar-target">~20%</span>
-                    </div>
-                    <div style="font-weight:700; font-size:0.85rem; color:#fff; margin-bottom:4px;">65–85g Daily</div>
-                    <div class="pillar-purpose">Muscle repair, structural bone building, and recovery after jumping & diving.</div>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="pillar-header">
-                        <span class="pillar-title">Healthy Fats</span>
-                        <span class="pillar-target">~25%</span>
-                    </div>
-                    <div style="font-weight:700; font-size:0.85rem; color:#fff; margin-bottom:4px;">45–55g Daily</div>
-                    <div class="pillar-purpose">Hormone balance, joint protection, and sustained energy on long tournament days.</div>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="pillar-header">
-                        <span class="pillar-title">Hydration</span>
-                        <span class="pillar-target">64–80 oz</span>
-                    </div>
-                    <div style="font-weight:700; font-size:0.85rem; color:#fff; margin-bottom:4px;">Water + Minerals</div>
-                    <div class="pillar-purpose">Sustains muscle contraction velocity and prevents late-match court fatigue.</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Daily Meal Timing & Habit Checklists -->
         <div class="grid-2">
             <div class="card">
                 <div class="stat-label" style="color:var(--accent-yellow); margin-bottom:10px;">Daily Fueling & Meal Tracker</div>
@@ -831,6 +920,83 @@
         <button class="reset-btn" onclick="resetNutritionHabits()">Reset Today's Nutrition Habits</button>
     </div>
 
+    <!-- D1 ROADMAP & MENTAL PREP TAB -->
+    <div id="roadmap" class="tab-content">
+        <div class="card">
+            <div class="stat-label">LONG-TERM ATHLETIC ROADMAP</div>
+            <h2 style="margin: 6px 0 8px 0;">Junior High 'A' Team & D1 Milestones</h2>
+            <p style="color:var(--text-muted); font-size:0.875rem; margin:0;">
+                Track fundamental mechanics and court habits required for top Junior High teams and high school varsity recruitment.
+            </p>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="stat-label" style="color:var(--accent-purple); margin-bottom:10px;">🧠 Pre-Match Mental Prep Checklist</div>
+
+                <div class="habit-item" id="prep-breath" onclick="toggleRoadmapItem('prep-breath')">
+                    <div class="habit-info">
+                        <span class="habit-title">3 Deep Belly Breaths</span>
+                        <span class="habit-desc">Inhale 4 sec, hold 4 sec, exhale 6 sec to calm nerves</span>
+                    </div>
+                    <div class="habit-checkbox"></div>
+                </div>
+
+                <div class="habit-item" id="prep-visual" onclick="toggleRoadmapItem('prep-visual')">
+                    <div class="habit-info">
+                        <span class="habit-title">Visual Hitter Reading</span>
+                        <span class="habit-desc">Picture drop-stepping and reading hitter shoulder angle</span>
+                    </div>
+                    <div class="habit-checkbox"></div>
+                </div>
+
+                <div class="habit-item" id="prep-talk" onclick="toggleRoadmapItem('prep-talk')">
+                    <div class="habit-info">
+                        <span class="habit-title">Positive Self-Talk Mantra</span>
+                        <span class="habit-desc">"I am fast, quiet on my landings, and ready for every ball."</span>
+                    </div>
+                    <div class="habit-checkbox"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="stat-label" style="color:var(--accent-yellow); margin-bottom:10px;">🏆 Libero Technical Milestone Checklist</div>
+
+                <div class="habit-item" id="m-pass" onclick="toggleRoadmapItem('m-pass')">
+                    <div class="habit-info">
+                        <span class="habit-title">Consistent 2.2+ Pass Rating</span>
+                        <span class="habit-desc">Maintain high-volume serve-receive target accuracy</span>
+                    </div>
+                    <div class="habit-checkbox"></div>
+                </div>
+
+                <div class="habit-item" id="m-landing" onclick="toggleRoadmapItem('m-landing')">
+                    <div class="habit-info">
+                        <span class="habit-title">Quiet 2-Foot Landing Mechanics</span>
+                        <span class="habit-desc">Absorb jump landings softly in hips without knee collapse</span>
+                    </div>
+                    <div class="habit-checkbox"></div>
+                </div>
+
+                <div class="habit-item" id="m-shuffle" onclick="toggleRoadmapItem('m-shuffle')">
+                    <div class="habit-info">
+                        <span class="habit-title">Low Base Lateral Shuffles</span>
+                        <span class="habit-desc">Fast first-step quickness without crossing feet</span>
+                    </div>
+                    <div class="habit-checkbox"></div>
+                </div>
+
+                <div class="habit-item" id="m-sleep" onclick="toggleRoadmapItem('m-sleep')">
+                    <div class="habit-info">
+                        <span class="habit-title">8-10 Hours Daily Sleep Habit</span>
+                        <span class="habit-desc">Consistent night rest to power natural growth spurts</span>
+                    </div>
+                    <div class="habit-checkbox"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <!-- FLOATING REST TIMER -->
@@ -853,6 +1019,7 @@
     let timerInterval = null;
     let audioCtx = null;
     const allHabitIds = ['habit-bfast', 'habit-lunch', 'habit-presnack', 'habit-postsnack', 'habit-dinner', 'hydro-1', 'hydro-2', 'hydro-3', 'hydro-4'];
+    const roadmapItemIds = ['prep-breath', 'prep-visual', 'prep-talk', 'm-pass', 'm-landing', 'm-shuffle', 'm-sleep'];
 
     /* Midnight Auto-Reset Check */
     function checkMidnightReset() {
@@ -860,30 +1027,11 @@
         const lastDate = localStorage.getItem('vb_last_active_date');
         
         if (lastDate && lastDate !== today) {
-            // New day detected - Reset daily trackers
             allHabitIds.forEach(id => localStorage.removeItem('nutr_' + id));
             localStorage.removeItem('vb_hydration');
             localStorage.removeItem('vb_mood');
             localStorage.removeItem('vb_soreness');
-            localStorage.removeItem('vb_sleep');
 
-            // Clear set checkmarks
-            if (programData.phases) {
-                programData.phases.forEach(phase => {
-                    phase.weeks.forEach(week => {
-                        week.days.forEach(day => {
-                            day.exercises.forEach(ex => {
-                                const numSets = parseInt(ex.sets) || 1;
-                                for (let i = 1; i <= numSets; i++) {
-                                    localStorage.removeItem(`${ex.id}_set_${i}`);
-                                }
-                            });
-                        });
-                    });
-                });
-            }
-
-            // Refresh UI elements
             loadNutritionHabits();
             loadHydration();
             loadRecovery();
@@ -903,15 +1051,12 @@
     setInterval(updateLiveTicker, 1000);
     updateLiveTicker();
 
-    /* Floating Rest Timer & Phone Audio Chime */
+    /* Rest Timer Chime */
     function playChime() {
         try {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            }
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            
             const freqs = [523.25, 659.25, 783.99];
             freqs.forEach((freq, idx) => {
                 const osc = audioCtx.createOscillator();
@@ -926,21 +1071,15 @@
                 osc.stop(audioCtx.currentTime + idx * 0.15 + 0.6);
             });
         } catch (e) {
-            console.error("Audio chime error:", e);
+            console.error(e);
         }
     }
 
     function startTimer(seconds) {
         stopTimer();
-        
-        if (!audioCtx) {
-            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-
         let remaining = seconds;
         const display = document.getElementById('timer-countdown');
         const stopBtn = document.getElementById('stop-timer-btn');
-        
         stopBtn.style.display = 'inline-block';
         display.textContent = `${remaining}s`;
 
@@ -960,10 +1099,7 @@
     }
 
     function stopTimer() {
-        if (timerInterval) {
-            clearInterval(timerInterval);
-            timerInterval = null;
-        }
+        if (timerInterval) clearInterval(timerInterval);
         document.getElementById('timer-countdown').textContent = '';
         document.getElementById('stop-timer-btn').style.display = 'none';
     }
@@ -971,7 +1107,6 @@
     function switchTab(tabId) {
         document.querySelectorAll('.nav-tab').forEach(btn => btn.classList.remove('active'));
         document.querySelectorAll('.tab-content').forEach(view => view.classList.remove('active'));
-        
         document.getElementById('tab-' + tabId + '-btn').classList.add('active');
         document.getElementById(tabId).classList.add('active');
     }
@@ -987,6 +1122,8 @@
             loadHydration();
             loadRecovery();
             loadNutritionHabits();
+            loadRoadmapItems();
+            loadStatsLog();
             calculateCompletionStats();
         } catch (error) {
             console.error('Error:', error);
@@ -998,14 +1135,12 @@
     function populatePhases() {
         const phaseSelect = document.getElementById('phase-select');
         phaseSelect.innerHTML = '';
-
         programData.phases.forEach((phase, index) => {
             const opt = document.createElement('option');
             opt.value = index;
             opt.textContent = phase.name;
             phaseSelect.appendChild(opt);
         });
-
         onPhaseChange();
     }
 
@@ -1013,7 +1148,6 @@
         const phaseIndex = document.getElementById('phase-select').value;
         const weekSelect = document.getElementById('week-select');
         weekSelect.innerHTML = '';
-
         const currentPhase = programData.phases[phaseIndex];
         if (currentPhase && currentPhase.weeks) {
             currentPhase.weeks.forEach((week, index) => {
@@ -1023,7 +1157,6 @@
                 weekSelect.appendChild(opt);
             });
         }
-
         onWeekChange();
     }
 
@@ -1032,7 +1165,6 @@
         const weekIndex = document.getElementById('week-select').value;
         const daySelect = document.getElementById('day-select');
         daySelect.innerHTML = '';
-
         const currentWeek = programData.phases[phaseIndex]?.weeks[weekIndex];
         if (currentWeek && currentWeek.days) {
             currentWeek.days.forEach((day, index) => {
@@ -1042,7 +1174,6 @@
                 daySelect.appendChild(opt);
             });
         }
-
         onDayChange();
     }
 
@@ -1058,7 +1189,6 @@
         if (pObj && wObj && dObj) {
             document.getElementById('resume-lift-label').textContent = `${pObj.name.split(':')[0]} • ${wObj.name} • ${dObj.name.split(':')[0]}`;
         }
-
         renderExercises(dObj);
     }
 
@@ -1078,7 +1208,6 @@
             for (let i = 1; i <= numSets; i++) {
                 const setKey = `${ex.id}_set_${i}`;
                 const isChecked = localStorage.getItem(setKey) === 'true';
-                
                 setsHtml += `
                     <div class="set-box ${isChecked ? 'checked' : ''}" onclick="toggleSetCheck(this, '${setKey}')">
                         <div class="set-checkbox"></div>
@@ -1094,9 +1223,7 @@
                 <div class="exercise-title">${ex.title}</div>
                 <div class="exercise-details">${ex.sets} Sets × ${ex.reps} Reps • Rest: ${ex.rest}</div>
                 ${ex.notes ? `<div class="exercise-notes">${ex.notes}</div>` : ''}
-                <div class="sets-row">
-                    ${setsHtml}
-                </div>
+                <div class="sets-row">${setsHtml}</div>
             `;
             listContainer.appendChild(card);
         });
@@ -1127,10 +1254,50 @@
         }
     }
 
-    /* Hydration & Recovery Helpers */
+    /* Court Stat Logging Functions */
+    function logPass(score) {
+        let passes = JSON.parse(localStorage.getItem('vb_pass_log') || '[]');
+        passes.push(score);
+        localStorage.setItem('vb_pass_log', JSON.stringify(passes));
+        loadStatsLog();
+        checkBadges();
+    }
+
+    function adjustCounter(type, delta) {
+        const key = `vb_${type}_count`;
+        let count = parseInt(localStorage.getItem(key) || '0') + delta;
+        if (count < 0) count = 0;
+        localStorage.setItem(key, count);
+        loadStatsLog();
+    }
+
+    function loadStatsLog() {
+        let passes = JSON.parse(localStorage.getItem('vb_pass_log') || '[]');
+        const totalPasses = passes.length;
+        const sum = passes.reduce((a, b) => a + b, 0);
+        const avg = totalPasses > 0 ? (sum / totalPasses).toFixed(2) : '0.00';
+
+        document.getElementById('pass-avg-display').textContent = avg;
+        document.getElementById('pass-count-display').textContent = `${totalPasses} Total Passes Logged`;
+
+        document.getElementById('dig-count-display').textContent = localStorage.getItem('vb_dig_count') || '0';
+        document.getElementById('sprawl-count-display').textContent = localStorage.getItem('vb_sprawl_count') || '0';
+    }
+
+    function resetStatsLog() {
+        if (confirm("Reset court stat counters?")) {
+            localStorage.removeItem('vb_pass_log');
+            localStorage.removeItem('vb_dig_count');
+            localStorage.removeItem('vb_sprawl_count');
+            loadStatsLog();
+        }
+    }
+
+    /* Hydration, Recovery & Nutrition Helpers */
     function setHydration(pct) {
         localStorage.setItem('vb_hydration', pct);
         updateHydroUI(pct);
+        checkBadges();
     }
 
     function loadHydration() {
@@ -1156,13 +1323,11 @@
         document.getElementById('rec-sleep').value = localStorage.getItem('vb_sleep') || '';
     }
 
-    /* Nutrition Habit Helpers & Dashboard Sync */
     function toggleHabit(habitId) {
         const el = document.getElementById(habitId);
         if (!el) return;
         el.classList.toggle('checked');
-        const isChecked = el.classList.contains('checked');
-        localStorage.setItem('nutr_' + habitId, isChecked);
+        localStorage.setItem('nutr_' + habitId, el.classList.contains('checked'));
         updateDashboardNutritionStat();
     }
 
@@ -1197,6 +1362,22 @@
         }
     }
 
+    function toggleRoadmapItem(itemId) {
+        const el = document.getElementById(itemId);
+        if (!el) return;
+        el.classList.toggle('checked');
+        localStorage.setItem('map_' + itemId, el.classList.contains('checked'));
+    }
+
+    function loadRoadmapItems() {
+        roadmapItemIds.forEach(id => {
+            const el = document.getElementById(id);
+            if (el && localStorage.getItem('map_' + id) === 'true') {
+                el.classList.add('checked');
+            }
+        });
+    }
+
     function calculateCompletionStats() {
         let totalSets = 0;
         let completedSets = 0;
@@ -1222,6 +1403,20 @@
         document.getElementById('completion-pct').textContent = `${pct}% Completed`;
 
         renderMatrix(pct);
+        checkBadges();
+    }
+
+    function checkBadges() {
+        const hydroVal = localStorage.getItem('vb_hydration');
+        document.getElementById('badge-hydro').classList.toggle('unlocked', hydroVal === '100');
+
+        const isLandingDone = localStorage.getItem('p1_w1_d2_ex2_set_1') === 'true';
+        document.getElementById('badge-landing').classList.toggle('unlocked', isLandingDone);
+
+        let passes = JSON.parse(localStorage.getItem('vb_pass_log') || '[]');
+        document.getElementById('badge-passer').classList.toggle('unlocked', passes.length >= 10);
+
+        document.getElementById('badge-streak').classList.toggle('unlocked', true);
     }
 
     function renderMatrix(overallPct = 0) {
@@ -1230,7 +1425,6 @@
 
         for (let i = 1; i <= 12; i++) {
             const fillPct = i === 1 ? Math.min(100, overallPct * 3) : 0;
-            
             const col = document.createElement('div');
             col.className = 'matrix-col';
             col.innerHTML = `
@@ -1248,7 +1442,6 @@
         let csvRows = [];
         const exportDate = new Date().toISOString().split('T')[0];
 
-        // 1. Export Workout Log Data
         csvRows.push(["CATEGORY", "PHASE", "WEEK", "DAY", "ITEM / EXERCISE", "DETAILS", "STATUS / VALUE"]);
 
         if (programData.phases) {
@@ -1276,44 +1469,25 @@
             });
         }
 
-        // 2. Export Daily Recovery & Hydration Log
         const hydroVal = localStorage.getItem('vb_hydration') || '25';
         const moodVal = localStorage.getItem('vb_mood') || 'Not Set';
         const sorenessVal = localStorage.getItem('vb_soreness') || 'Not Set';
         const sleepVal = localStorage.getItem('vb_sleep') || 'Not Set';
 
         csvRows.push(["Daily Metric", "Today", "-", "-", "Hydration Goal", "1 Gallon Goal", `${hydroVal}%`]);
-        csvRows.push(["Daily Metric", "Today", "-", "-", "Recovery Mood", "Subjective Focus/Energy", `"${moodVal}"`]);
-        csvRows.push(["Daily Metric", "Today", "-", "-", "Recovery Soreness", "Muscle Soreness Level", `"${sorenessVal}"`]);
-        csvRows.push(["Daily Metric", "Today", "-", "-", "Sleep Quality", "Rest Duration", `"${sleepVal}"`]);
+        csvRows.push(["Daily Metric", "Today", "-", "-", "Recovery Mood", "Subjective Focus", `"${moodVal}"`]);
+        csvRows.push(["Daily Metric", "Today", "-", "-", "Recovery Soreness", "Soreness Level", `"${sorenessVal}"`]);
+        csvRows.push(["Daily Metric", "Today", "-", "-", "Sleep Duration", "Sleep Goal", `"${sleepVal}"`]);
 
-        // 3. Export Daily Nutrition Habits
-        const habitLabels = {
-            'habit-bfast': 'Breakfast (7:00 AM)',
-            'habit-lunch': 'Lunch (12:00 PM)',
-            'habit-presnack': 'Pre-Practice Snack (4:00 PM)',
-            'habit-postsnack': 'Post-Workout Recovery (6:30 PM)',
-            'habit-dinner': 'Dinner (7:30 PM)',
-            'hydro-1': 'Morning Water Bottle (16-20 oz)',
-            'hydro-2': 'School/Lunch Water Bottle (16-20 oz)',
-            'hydro-3': 'Pre-Practice Water Bottle (16-20 oz)',
-            'hydro-4': 'Post-Court Electrolytes (16-20 oz)'
-        };
+        let passes = JSON.parse(localStorage.getItem('vb_pass_log') || '[]');
+        const totalPasses = passes.length;
+        const sum = passes.reduce((a, b) => a + b, 0);
+        const avg = totalPasses > 0 ? (sum / totalPasses).toFixed(2) : '0.00';
 
-        allHabitIds.forEach(id => {
-            const isChecked = localStorage.getItem('nutr_' + id) === 'true';
-            csvRows.push([
-                "Nutrition Habit",
-                "Today",
-                "-",
-                "-",
-                `"${habitLabels[id] || id}"`,
-                "Daily Target",
-                isChecked ? "Completed" : "Incomplete"
-            ]);
-        });
+        csvRows.push(["Court Stats", "Cumulative", "-", "-", "Passing Rating Average", `${totalPasses} Total Passes`, `${avg}`]);
+        csvRows.push(["Court Stats", "Cumulative", "-", "-", "Successful Digs", "Defensive Digs", `${localStorage.getItem('vb_dig_count') || 0}`]);
+        csvRows.push(["Court Stats", "Cumulative", "-", "-", "Diving Sprawls", "Emergency Recoveries", `${localStorage.getItem('vb_sprawl_count') || 0}`]);
 
-        // Build CSV Blob and Download
         const csvContent = "data:text/csv;charset=utf-8," + csvRows.map(e => e.join(",")).join("\n");
         const encodedUri = encodeURI(csvContent);
         const link = document.createElement("a");
@@ -1324,7 +1498,6 @@
         document.body.removeChild(link);
     }
 
-    // Initialize App
     initApp();
 </script>
 
