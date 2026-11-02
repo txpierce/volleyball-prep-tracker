@@ -237,23 +237,44 @@
             margin-top: 2px;
         }
 
-        /* Stat Counter Buttons */
-        .pass-btn-group {
-            display: flex;
+        /* Stat Counter & Passing Buttons Clean Layout */
+        .pass-btn-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 6px;
-            margin-top: 8px;
+            margin-top: 10px;
         }
 
         .pass-btn {
-            flex: 1;
-            padding: 10px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 4px;
             border-radius: 8px;
             border: 1px solid var(--card-border);
             background: #0f172a;
             color: #fff;
-            font-weight: 800;
-            font-size: 0.95rem;
             cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        .pass-btn:active {
+            transform: scale(0.96);
+        }
+
+        .pass-num {
+            font-size: 1.2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .pass-lbl {
+            font-size: 0.65rem;
+            font-weight: 700;
+            margin-top: 4px;
+            opacity: 0.9;
+            text-align: center;
         }
 
         .counter-box {
@@ -754,54 +775,98 @@
         <button class="reset-btn" onclick="resetCurrentDay()">Reset Today's Checkmarks</button>
     </div>
 
-    <!-- COURT STATS TAB (LIBERO / DS FOCUS) -->
+    <!-- COURT STATS TAB (PASSING & SERVING FOCUS) -->
     <div id="stats" class="tab-content">
         <div class="card">
-            <div class="stat-label">LIBERO & BACK-ROW DEFENSE LOG</div>
-            <h2 style="margin: 4px 0 6px 0; font-size:1.1rem;">Serve Receive & Dig Tracker</h2>
+            <div class="stat-label">LIBERO & SERVING COMMAND LOG</div>
+            <h2 style="margin: 4px 0 6px 0; font-size:1.1rem;">Serve Receive & Serving Tracker</h2>
             <p style="color:var(--text-muted); font-size:0.8rem; margin:0;">
-                Log your passing quality ratings and defensive digs during club practices and scrimmages.
+                Log passing quality ratings, serving precision, and defensive digs during practices and matches.
             </p>
         </div>
 
-        <div class="grid-2">
-            <div class="card">
-                <div class="stat-label">Pass Quality Rating Logger</div>
-                <div class="pass-btn-group">
-                    <button class="pass-btn" style="background:#065f46;" onclick="logPass(3)">3 (Target)</button>
-                    <button class="pass-btn" style="background:#1e3a8a;" onclick="logPass(2)">2 (Playable)</button>
-                    <button class="pass-btn" style="background:#854d0e;" onclick="logPass(1)">1 (Out)</button>
-                    <button class="pass-btn" style="background:#991b1b;" onclick="logPass(0)">0 (Ace)</button>
+        <!-- Clean 4-Button Grid for Pass Quality -->
+        <div class="card">
+            <div class="stat-label">Pass Quality Rating Logger</div>
+            <div class="pass-btn-grid">
+                <button class="pass-btn" style="background:#065f46;" onclick="logPass(3)">
+                    <span class="pass-num">3</span>
+                    <span class="pass-lbl">Target</span>
+                </button>
+                <button class="pass-btn" style="background:#1e3a8a;" onclick="logPass(2)">
+                    <span class="pass-num">2</span>
+                    <span class="pass-lbl">Playable</span>
+                </button>
+                <button class="pass-btn" style="background:#854d0e;" onclick="logPass(1)">
+                    <span class="pass-num">1</span>
+                    <span class="pass-lbl">Out</span>
+                </button>
+                <button class="pass-btn" style="background:#991b1b;" onclick="logPass(0)">
+                    <span class="pass-num">0</span>
+                    <span class="pass-lbl">Ace Rec'd</span>
+                </button>
+            </div>
+            <div style="margin-top:12px; text-align:center;">
+                <div class="stat-label">Passing Rating Average</div>
+                <div class="stat-value" id="pass-avg-display">0.00</div>
+                <div class="stat-sub" id="pass-count-display">0 Total Passes Logged</div>
+            </div>
+        </div>
+
+        <!-- Serving Accuracy Tracker -->
+        <div class="card">
+            <div class="stat-label">Serving Accuracy Logger</div>
+            <div class="pass-btn-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <button class="pass-btn" style="background:#065f46;" onclick="logServe('ace')">
+                    <span class="pass-num">🎯</span>
+                    <span class="pass-lbl">Ace</span>
+                </button>
+                <button class="pass-btn" style="background:#1e3a8a;" onclick="logServe('in')">
+                    <span class="pass-num">✅</span>
+                    <span class="pass-lbl">In Play</span>
+                </button>
+                <button class="pass-btn" style="background:#991b1b;" onclick="logServe('err')">
+                    <span class="pass-num">❌</span>
+                    <span class="pass-lbl">Error</span>
+                </button>
+            </div>
+            <div style="margin-top:12px; display:flex; justify-content:space-around; text-align:center;">
+                <div>
+                    <div class="stat-label">Serve In %</div>
+                    <div class="stat-value" id="serve-pct-display" style="color:var(--accent-green);">0%</div>
                 </div>
-                <div style="margin-top:12px; text-align:center;">
-                    <div class="stat-label">Passing Rating Average</div>
-                    <div class="stat-value" id="pass-avg-display">0.00</div>
-                    <div class="stat-sub" id="pass-count-display">0 Total Passes Logged</div>
+                <div>
+                    <div class="stat-label">Total Aces</div>
+                    <div class="stat-value" id="serve-ace-display" style="color:var(--accent-yellow);">0</div>
+                </div>
+                <div>
+                    <div class="stat-label">Total Serves</div>
+                    <div class="stat-value" id="serve-total-display" style="color:var(--accent-blue);">0</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="stat-label">Defensive Digs & Sprawls Counter</div>
+            <div class="counter-box">
+                <div>
+                    <div style="font-weight:800; font-size:0.95rem;">Successful Digs</div>
+                    <div style="font-size:0.7rem; color:var(--text-muted);">Hard attacks & tips recovered</div>
+                </div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span id="dig-count-display" style="font-size:1.2rem; font-weight:800; color:var(--accent-yellow);">0</span>
+                    <button class="btn-counter" onclick="adjustCounter('dig', 1)">+</button>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="stat-label">Defensive Digs & Sprawls Counter</div>
-                <div class="counter-box">
-                    <div>
-                        <div style="font-weight:800; font-size:0.95rem;">Successful Digs</div>
-                        <div style="font-size:0.7rem; color:var(--text-muted);">Hard attacks & tips recovered</div>
-                    </div>
-                    <div style="display:flex; align-items:center; gap:8px;">
-                        <span id="dig-count-display" style="font-size:1.2rem; font-weight:800; color:var(--accent-yellow);">0</span>
-                        <button class="btn-counter" onclick="adjustCounter('dig', 1)">+</button>
-                    </div>
+            <div class="counter-box">
+                <div>
+                    <div style="font-weight:800; font-size:0.95rem;">Diving / Sprawl Recoveries</div>
+                    <div style="font-size:0.7rem; color:var(--text-muted);">Emergency chest-glides & pancakes</div>
                 </div>
-
-                <div class="counter-box">
-                    <div>
-                        <div style="font-weight:800; font-size:0.95rem;">Diving / Sprawl Recoveries</div>
-                        <div style="font-size:0.7rem; color:var(--text-muted);">Emergency chest-glides & pancakes</div>
-                    </div>
-                    <div style="display:flex; align-items:center; gap:8px;">
-                        <span id="sprawl-count-display" style="font-size:1.2rem; font-weight:800; color:var(--accent-blue);">0</span>
-                        <button class="btn-counter" onclick="adjustCounter('sprawl', 1)">+</button>
-                    </div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span id="sprawl-count-display" style="font-size:1.2rem; font-weight:800; color:var(--accent-blue);">0</span>
+                    <button class="btn-counter" onclick="adjustCounter('sprawl', 1)">+</button>
                 </div>
             </div>
         </div>
@@ -1238,13 +1303,20 @@
         }
     }
 
-    /* Court Stat Logging Functions */
+    /* Court Stat & Serve Logging Functions */
     function logPass(score) {
         let passes = JSON.parse(localStorage.getItem('vb_pass_log') || '[]');
         passes.push(score);
         localStorage.setItem('vb_pass_log', JSON.stringify(passes));
         loadStatsLog();
         checkBadges();
+    }
+
+    function logServe(type) {
+        let serves = JSON.parse(localStorage.getItem('vb_serve_log') || '[]');
+        serves.push(type);
+        localStorage.setItem('vb_serve_log', JSON.stringify(serves));
+        loadStatsLog();
     }
 
     function adjustCounter(type, delta) {
@@ -1256,21 +1328,35 @@
     }
 
     function loadStatsLog() {
+        // Pass Log Calculations
         let passes = JSON.parse(localStorage.getItem('vb_pass_log') || '[]');
         const totalPasses = passes.length;
-        const sum = passes.reduce((a, b) => a + b, 0);
-        const avg = totalPasses > 0 ? (sum / totalPasses).toFixed(2) : '0.00';
+        const passSum = passes.reduce((a, b) => a + b, 0);
+        const passAvg = totalPasses > 0 ? (passSum / totalPasses).toFixed(2) : '0.00';
 
-        document.getElementById('pass-avg-display').textContent = avg;
+        document.getElementById('pass-avg-display').textContent = passAvg;
         document.getElementById('pass-count-display').textContent = `${totalPasses} Total Passes Logged`;
 
+        // Serve Log Calculations
+        let serves = JSON.parse(localStorage.getItem('vb_serve_log') || '[]');
+        const totalServes = serves.length;
+        const aces = serves.filter(s => s === 'ace').length;
+        const inServes = serves.filter(s => s === 'in' || s === 'ace').length;
+        const servePct = totalServes > 0 ? Math.round((inServes / totalServes) * 100) : 0;
+
+        document.getElementById('serve-pct-display').textContent = `${servePct}%`;
+        document.getElementById('serve-ace-display').textContent = aces;
+        document.getElementById('serve-total-display').textContent = totalServes;
+
+        // Dig & Sprawl Displays
         document.getElementById('dig-count-display').textContent = localStorage.getItem('vb_dig_count') || '0';
         document.getElementById('sprawl-count-display').textContent = localStorage.getItem('vb_sprawl_count') || '0';
     }
 
     function resetStatsLog() {
-        if (confirm("Reset court stat counters?")) {
+        if (confirm("Reset practice and serving stat counters?")) {
             localStorage.removeItem('vb_pass_log');
+            localStorage.removeItem('vb_serve_log');
             localStorage.removeItem('vb_dig_count');
             localStorage.removeItem('vb_sprawl_count');
             loadStatsLog();
@@ -1465,10 +1551,17 @@
 
         let passes = JSON.parse(localStorage.getItem('vb_pass_log') || '[]');
         const totalPasses = passes.length;
-        const sum = passes.reduce((a, b) => a + b, 0);
-        const avg = totalPasses > 0 ? (sum / totalPasses).toFixed(2) : '0.00';
+        const passSum = passes.reduce((a, b) => a + b, 0);
+        const passAvg = totalPasses > 0 ? (passSum / totalPasses).toFixed(2) : '0.00';
 
-        csvRows.push(["Court Stats", "Cumulative", "-", "-", "Passing Rating Average", `${totalPasses} Total Passes`, `${avg}`]);
+        let serves = JSON.parse(localStorage.getItem('vb_serve_log') || '[]');
+        const totalServes = serves.length;
+        const aces = serves.filter(s => s === 'ace').length;
+        const inServes = serves.filter(s => s === 'in' || s === 'ace').length;
+        const servePct = totalServes > 0 ? Math.round((inServes / totalServes) * 100) : 0;
+
+        csvRows.push(["Court Stats", "Cumulative", "-", "-", "Passing Rating Average", `${totalPasses} Total Passes`, `${passAvg}`]);
+        csvRows.push(["Court Stats", "Cumulative", "-", "-", "Serving Accuracy In %", `${totalServes} Total Serves (${aces} Aces)`, `${servePct}%`]);
         csvRows.push(["Court Stats", "Cumulative", "-", "-", "Successful Digs", "Defensive Digs", `${localStorage.getItem('vb_dig_count') || 0}`]);
         csvRows.push(["Court Stats", "Cumulative", "-", "-", "Diving Sprawls", "Emergency Recoveries", `${localStorage.getItem('vb_sprawl_count') || 0}`]);
 
