@@ -123,6 +123,28 @@
             transition: transform 0.1s;
         }
 
+        .btn-export {
+            background: #0284c7;
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .btn-export:hover {
+            background: #0369a1;
+        }
+
         .hero-title {
             font-size: 1.4rem;
             font-weight: 800;
@@ -581,6 +603,7 @@
             <div class="stat-label">ATHLETIC COMMAND CENTER</div>
             <div class="hero-title">Volleyball Performance Program</div>
             <div class="hero-sub">Junior High 'A' Team Prep & Division 1 Foundation</div>
+            <button class="btn-export" onclick="exportDataToCSV()">📊 Export All Data (CSV)</button>
         </div>
 
         <div class="grid-3">
@@ -1218,6 +1241,87 @@
             `;
             container.appendChild(col);
         }
+    }
+
+    /* CSV Export Functionality */
+    function exportDataToCSV() {
+        let csvRows = [];
+        const exportDate = new Date().toISOString().split('T')[0];
+
+        // 1. Export Workout Log Data
+        csvRows.push(["CATEGORY", "PHASE", "WEEK", "DAY", "ITEM / EXERCISE", "DETAILS", "STATUS / VALUE"]);
+
+        if (programData.phases) {
+            programData.phases.forEach(phase => {
+                phase.weeks.forEach(week => {
+                    week.days.forEach(day => {
+                        day.exercises.forEach(ex => {
+                            const numSets = parseInt(ex.sets) || 1;
+                            for (let i = 1; i <= numSets; i++) {
+                                const setKey = `${ex.id}_set_${i}`;
+                                const isChecked = localStorage.getItem(setKey) === 'true';
+                                csvRows.push([
+                                    "Workout Set",
+                                    `"${phase.name}"`,
+                                    `"${week.name}"`,
+                                    `"${day.name}"`,
+                                    `"${ex.title} (Set ${i})"`,
+                                    `"${ex.sets} Sets x ${ex.reps} | Rest: ${ex.rest}"`,
+                                    isChecked ? "Completed" : "Incomplete"
+                                ]);
+                            }
+                        });
+                    });
+                });
+            });
+        }
+
+        // 2. Export Daily Recovery & Hydration Log
+        const hydroVal = localStorage.getItem('vb_hydration') || '25';
+        const moodVal = localStorage.getItem('vb_mood') || 'Not Set';
+        const sorenessVal = localStorage.getItem('vb_soreness') || 'Not Set';
+        const sleepVal = localStorage.getItem('vb_sleep') || 'Not Set';
+
+        csvRows.push(["Daily Metric", "Today", "-", "-", "Hydration Goal", "1 Gallon Goal", `${hydroVal}%`]);
+        csvRows.push(["Daily Metric", "Today", "-", "-", "Recovery Mood", "Subjective Focus/Energy", `"${moodVal}"`]);
+        csvRows.push(["Daily Metric", "Today", "-", "-", "Recovery Soreness", "Muscle Soreness Level", `"${sorenessVal}"`]);
+        csvRows.push(["Daily Metric", "Today", "-", "-", "Sleep Quality", "Rest Duration", `"${sleepVal}"`]);
+
+        // 3. Export Daily Nutrition Habits
+        const habitLabels = {
+            'habit-bfast': 'Breakfast (7:00 AM)',
+            'habit-lunch': 'Lunch (12:00 PM)',
+            'habit-presnack': 'Pre-Practice Snack (4:00 PM)',
+            'habit-postsnack': 'Post-Workout Recovery (6:30 PM)',
+            'habit-dinner': 'Dinner (7:30 PM)',
+            'hydro-1': 'Morning Water Bottle (16-20 oz)',
+            'hydro-2': 'School/Lunch Water Bottle (16-20 oz)',
+            'hydro-3': 'Pre-Practice Water Bottle (16-20 oz)',
+            'hydro-4': 'Post-Court Electrolytes (16-20 oz)'
+        };
+
+        allHabitIds.forEach(id => {
+            const isChecked = localStorage.getItem('nutr_' + id) === 'true';
+            csvRows.push([
+                "Nutrition Habit",
+                "Today",
+                "-",
+                "-",
+                `"${habitLabels[id] || id}"`,
+                "Daily Target",
+                isChecked ? "Completed" : "Incomplete"
+            ]);
+        });
+
+        // Build CSV Blob and Download
+        const csvContent = "data:text/csv;charset=utf-8," + csvRows.map(e => e.join(",")).join("\n");
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", `Volleyball_Performance_Data_${exportDate}.csv`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     }
 
     // Initialize App
